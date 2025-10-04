@@ -10,6 +10,8 @@ const BOT_TOKEN = process.env.BOT_TOKEN || '8050762607:AAGXo6iwN6uwfC1y0E3lR4Sv9
 const STATS_FILE = process.env.NODE_ENV === 'production' 
   ? '/tmp/stats.json' 
   : path.join(__dirname, 'stats.json');
+const PORT = process.env.PORT || 3000;
+
 // ID del proprietario (si imposta automaticamente al primo uso)
 let OWNER_CHAT_ID = null;
 
@@ -50,7 +52,7 @@ function loadStats() {
     carsWashed: 0,
     nextSlot: '16:30',
     avgRating: 4.9,
-    activeOperators: 1, // Cambiato da activeTechs a activeOperators
+    activeTechs: 1,
     lastUpdate: new Date().toISOString()
   };
 }
@@ -160,7 +162,7 @@ async function handleCommand(chatId, username, command, args) {
 🚗 <b>WashDrive Counter Bot</b>
 
 <b>Comandi disponibili:</b>
-/auto - Aggiungi un'auto lavata
+/auto - Aggiungi un'auto lavata (+1) o imposta numero (/auto 25)
 /slot - Imposta prossimo slot
 /operatori - Gestisci operatori attivi
 /stats - Mostra statistiche
@@ -173,22 +175,48 @@ Sistema: <b>100% Automatico</b> ✅
       break;
       
     case '/auto':
-      stats.carsWashed++;
-      stats.nextSlot = getNextSlot();
-      saveStats(stats);
-      
-      await sendMessage(chatId, `
+      if (args.length > 0) {
+        // Se viene fornito un numero, imposta quel valore
+        const newCount = parseInt(args[0]);
+        if (!isNaN(newCount) && newCount >= 0) {
+          stats.carsWashed = newCount;
+          stats.nextSlot = getNextSlot();
+          saveStats(stats);
+          
+          await sendMessage(chatId, `
+✅ <b>Auto impostate a ${newCount}!</b>
+
+🚗 Auto lavate oggi: <b>${stats.carsWashed}</b>
+⏰ Prossimo slot: <b>${stats.nextSlot}</b>
+⭐ Rating: <b>${stats.avgRating}</b>
+👥 Operatori attivi: <b>${stats.activeTechs}</b>
+
+<i>🎯 Sito aggiornato automaticamente!</i>
+          `);
+          
+          console.log(`🚗 Auto impostate a: ${stats.carsWashed}`);
+        } else {
+          await sendMessage(chatId, `❌ Numero non valido. Usa: /auto 25`);
+        }
+      } else {
+        // Se non viene fornito numero, incrementa di 1
+        stats.carsWashed++;
+        stats.nextSlot = getNextSlot();
+        saveStats(stats);
+        
+        await sendMessage(chatId, `
 ✅ <b>Auto lavata registrata!</b>
 
 🚗 Auto lavate oggi: <b>${stats.carsWashed}</b>
 ⏰ Prossimo slot: <b>${stats.nextSlot}</b>
 ⭐ Rating: <b>${stats.avgRating}</b>
-👥 Operatori attivi: <b>${stats.activeOperators || stats.activeTechs || 1}</b>
+👥 Operatori attivi: <b>${stats.activeTechs}</b>
 
 <i>🎯 Sito aggiornato automaticamente!</i>
-      `);
-      
-      console.log(`🚗 Auto lavata! Totale oggi: ${stats.carsWashed}`);
+        `);
+        
+        console.log(`🚗 Auto lavata! Totale oggi: ${stats.carsWashed}`);
+      }
       break;
       
     case '/slot':
@@ -254,7 +282,7 @@ Slot attuale: <b>${stats.nextSlot}</b>
         await sendMessage(chatId, `
 👥 <b>Gestione Operatori</b>
 
-Operatori attivi: <b>${stats.activeOperators || stats.activeTechs || 1}</b>
+Operatori attivi: <b>${stats.activeTechs}</b>
 
 <b>Comandi:</b>
 /operatori 3 - Imposta 3 operatori
@@ -265,7 +293,7 @@ Operatori attivi: <b>${stats.activeOperators || stats.activeTechs || 1}</b>
         `);
       } else {
         const operatorArg = args[0];
-        let currentOps = stats.activeOperators || stats.activeTechs || 1;
+        let currentOps = stats.activeTechs || 1;
         
         if (operatorArg.startsWith('+')) {
           currentOps += parseInt(operatorArg.slice(1)) || 1;
@@ -276,18 +304,13 @@ Operatori attivi: <b>${stats.activeOperators || stats.activeTechs || 1}</b>
         }
         
         currentOps = Math.max(1, Math.min(5, currentOps)); // Tra 1 e 5
-        stats.activeOperators = currentOps;
-        
-        // Rimuovi il vecchio campo se esiste
-        if (stats.activeTechs) {
-          delete stats.activeTechs;
-        }
+        stats.activeTechs = currentOps;
         
         saveStats(stats);
         await sendMessage(chatId, `
 ✅ <b>Operatori aggiornati!</b>
 
-👥 Operatori attivi: <b>${stats.activeOperators}</b>
+👥 Operatori attivi: <b>${stats.activeTechs}</b>
 
 <i>🎯 Sito aggiornato automaticamente!</i>
         `);
@@ -301,7 +324,7 @@ Operatori attivi: <b>${stats.activeOperators || stats.activeTechs || 1}</b>
 🚗 Auto lavate oggi: <b>${stats.carsWashed}</b>
 ⏰ Prossimo slot: <b>${stats.nextSlot}</b>
 ⭐ Rating medio: <b>${stats.avgRating}</b>
-👥 Operatori attivi: <b>${stats.activeOperators || stats.activeTechs || 1}</b>
+👥 Operatori attivi: <b>${stats.activeTechs}</b>
 
 🕐 Ultimo aggiornamento: <b>${new Date(stats.lastUpdate).toLocaleTimeString('it-IT')}</b>
 ✅ Sistema automatico attivo
@@ -329,6 +352,7 @@ Operatori attivi: <b>${stats.activeOperators || stats.activeTechs || 1}</b>
 
 <b>🚗 Auto:</b>
 /auto - Registra un'auto lavata (+1)
+/auto 25 - Imposta a 25 auto lavate
 
 <b>⏰ Slot:</b>
 /slot - Mostra slot attuale
@@ -399,29 +423,6 @@ async function startBot() {
   console.log('🤖 WashDrive Telegram Bot avviato!');
   console.log('📱 Cerca il bot su Telegram e manda /start');
   console.log('✅ Sistema 100% automatico attivo!');
-  
-  // Server HTTP per Railway (evita sleep del servizio)
-  const server = http.createServer((req, res) => {
-    if (req.url === '/') {
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({
-        status: 'Bot Online',
-        uptime: process.uptime(),
-        lastUpdate: new Date().toISOString()
-      }));
-    } else if (req.url === '/stats') {
-      const stats = loadStats();
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(stats));
-    } else {
-      res.writeHead(404);
-      res.end('Not Found');
-    }
-  });
-  
-  server.listen(PORT, () => {
-    console.log(`🌐 Server HTTP attivo su porta ${PORT}`);
-  });
   
   let offset = 0;
   while (true) {
