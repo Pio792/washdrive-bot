@@ -58,6 +58,12 @@
     setupMobileMenu();
     setCurrentYear();
     setupCookieBanner();
+    
+    // Carica statistiche live al caricamento della pagina
+    loadLiveStats();
+    
+    // Aggiorna statistiche ogni 30 secondi
+    setInterval(loadLiveStats, 30000);
     setupBackToTop();
     if(typeof enhanceBackToTopProgress === 'function') {
       enhanceBackToTopProgress();
@@ -309,6 +315,33 @@
         showSlide(currentSlide);
       }, 4000);
     }
+  }
+
+  // Funzione per caricare statistiche live
+  function loadLiveStats() {
+    fetch('/stats.json')
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(stats => {
+        // Aggiorna gli elementi nel carousel
+        const carsWashedEl = document.getElementById('carsWashedToday');
+        const nextSlotEl = document.getElementById('nextSlot');
+        const avgRatingEl = document.getElementById('avgRating');
+        const activeTechsEl = document.getElementById('activeTechs');
+
+        if (carsWashedEl) carsWashedEl.textContent = stats.carsWashed || 0;
+        if (nextSlotEl) nextSlotEl.textContent = stats.nextSlot || '16:30';
+        if (avgRatingEl) avgRatingEl.textContent = stats.avgRating || '4.9';
+        if (activeTechsEl) activeTechsEl.textContent = stats.activeTechs || 1;
+
+        console.log('✅ Statistiche live aggiornate:', stats);
+      })
+      .catch(error => {
+        console.warn('⚠️ Errore nel caricamento statistiche:', error);
+        // Mantieni valori di default se il caricamento fallisce
+      });
   }
 
   // Navigazione smooth scroll
