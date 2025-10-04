@@ -399,28 +399,7 @@ async function startBot() {
   console.log('📱 Cerca il bot su Telegram e manda /start');
   console.log('✅ Sistema 100% automatico attivo!');
   
-  // Server HTTP per Railway (evita sleep del servizio)
-  const server = http.createServer((req, res) => {
-    if (req.url === '/') {
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify({
-        status: 'Bot Online',
-        uptime: process.uptime(),
-        lastUpdate: new Date().toISOString()
-      }));
-    } else if (req.url === '/stats') {
-      const stats = loadStats();
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(stats));
-    } else {
-      res.writeHead(404);
-      res.end('Not Found');
-    }
-  });
-  
-  server.listen(PORT, () => {
-    console.log(`🌐 Server HTTP attivo su porta ${PORT}`);
-  });
+  // RIMUOVO il server HTTP - lo gestisce server.js
   
   let offset = 0;
   while (true) {
