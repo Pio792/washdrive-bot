@@ -6,9 +6,10 @@ const path = require('path');
 
 // Configurazione
 const BOT_TOKEN = process.env.BOT_TOKEN || '8050762607:AAGXo6iwN6uwfC1y0E3lR4Sv9bvAsG1jsiI';
-const STATS_FILE = path.join(__dirname, 'stats.json');
-const PORT = process.env.PORT || 3000;
-
+// Su Render, usa /tmp che è scrivibile, altrimenti usa la directory corrente
+const STATS_FILE = process.env.NODE_ENV === 'production' 
+  ? '/tmp/stats.json' 
+  : path.join(__dirname, 'stats.json');
 // ID del proprietario (si imposta automaticamente al primo uso)
 let OWNER_CHAT_ID = null;
 
