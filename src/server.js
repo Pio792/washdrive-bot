@@ -4,6 +4,10 @@ const fs = require('fs');
 const path = require('path');
 const { exec } = require('child_process');
 
+// Avvia il bot Telegram
+console.log('🤖 Avvio bot Telegram...');
+require('./telegram-bot.js');
+
 const PORT = process.env.PORT || 3000;
 
 // MIME types
