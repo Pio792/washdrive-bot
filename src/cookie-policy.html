@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cookie Policy - WashDrive</title>
+  <meta name="description" content="Informativa sui Cookie di WashDrive - Come utilizziamo i cookie per migliorare la tua esperienza sul nostro sito.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://washdrive.it/cookie-policy.html">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{brand:'#f59e0b'}}}};</script>
+  <style>
+  body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif}
+  h1,h2,h3{font-family:'Outfit','Manrope',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;letter-spacing:-.02em;font-weight:700}
+  h1{font-weight:800;line-height:1.05}
+  h2{line-height:1.14}
+  h3{line-height:1.18}
+    /* Sky theme migliorato per pagine legali */
+    body.sky-theme{
+      background:linear-gradient(to bottom,#062844 0%,#0a4468 38%,#0e5c8a 68%,#1270a8 85%,#1580b8 100%);
+      color:#f2f8ff;
+      position:relative;
+      min-height:100vh;
+    }
+    /* Mobile: sfondo ancora più scuro per migliore leggibilità */
+    @media (max-width: 768px) {
+      body.sky-theme{background:linear-gradient(to bottom,#041d33 0%,#073754 38%,#0a4d75 68%,#0d5f8e 85%,#1070a0 100%)}
+    }
+    /* Nuvole morbide aggiornate */
+    body.sky-theme::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:
+      radial-gradient(circle at 15% 22%,rgba(255,255,255,.45) 0%,rgba(255,255,255,0) 60%),
+      radial-gradient(circle at 72% 26%,rgba(255,255,255,.38) 0%,rgba(255,255,255,0) 58%),
+      radial-gradient(circle at 34% 68%,rgba(255,255,255,.35) 0%,rgba(255,255,255,0) 60%),
+      radial-gradient(circle at 82% 64%,rgba(255,255,255,.30) 0%,rgba(255,255,255,0) 58%),
+      radial-gradient(ellipse at 50% 90%,rgba(255,255,255,.15) 0%,rgba(255,255,255,0) 65%);
+      animation:clouds-move 140s linear infinite;filter:blur(2px)}
+    /* Mobile: nuvole ancora più attenuate */
+    @media (max-width: 768px) {
+      body.sky-theme::before{background:
+        radial-gradient(circle at 15% 22%,rgba(255,255,255,.35) 0%,rgba(255,255,255,0) 60%),
+        radial-gradient(circle at 72% 26%,rgba(255,255,255,.28) 0%,rgba(255,255,255,0) 58%),
+        radial-gradient(circle at 34% 68%,rgba(255,255,255,.25) 0%,rgba(255,255,255,0) 60%),
+        radial-gradient(circle at 82% 64%,rgba(255,255,255,.20) 0%,rgba(255,255,255,0) 58%),
+        radial-gradient(ellipse at 50% 90%,rgba(255,255,255,.10) 0%,rgba(255,255,255,0) 65%)}
+    }
+    @keyframes clouds-move{0%{transform:translateY(0)}50%{transform:translateY(22px)}100%{transform:translateY(0)}}
+    /* Sol element */
+    body.sky-theme::after{content:"";position:fixed;top:-140px;left:-140px;width:720px;height:720px;z-index:-2;pointer-events:none;background:
+      radial-gradient(circle at center,rgba(255,255,255,.85) 0%,rgba(255,249,220,.8) 6%,rgba(255,236,160,.62) 16%,rgba(255,220,120,.38) 28%,rgba(255,200,80,.22) 40%,rgba(255,175,50,.12) 55%,rgba(255,150,30,.06) 68%,rgba(255,140,0,0) 78%);
+      mix-blend-mode:screen;animation:sun-pulse 18s ease-in-out infinite}
+    /* Mobile: sole più attenuato */
+    @media (max-width: 768px) {
+      body.sky-theme::after{background:
+        radial-gradient(circle at center,rgba(255,255,255,.75) 0%,rgba(255,249,220,.7) 6%,rgba(255,236,160,.52) 16%,rgba(255,220,120,.30) 28%,rgba(255,200,80,.16) 40%,rgba(255,175,50,.08) 55%,rgba(255,150,30,.04) 68%,rgba(255,140,0,0) 78%)}
+    }
+    @keyframes sun-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+    /* Header migliorato */
+    body.sky-theme header{background:rgba(0,40,75,.75);backdrop-filter:blur(15px);border-color:rgba(255,255,255,.15)}
+    /* Contenuti principali senza rifinitura */
+    body.sky-theme main{
+      background:transparent;
+      backdrop-filter:none;
+      border:none;
+      border-radius:0;
+      box-shadow:none;
+    }
+    /* Header del titolo principale */
+    body.sky-theme main header{
+      background:transparent !important;
+      backdrop-filter:none !important;
+      border:none !important;
+      box-shadow:none !important;
+    }
+    body.sky-theme main header h1{
+      background:transparent !important;
+      color:#f8fafc !important;
+    }
+    /* Forza il colore anche con classe Tailwind */
+    .sky-theme h1.text-3xl{
+      color:#f8fafc !important;
+    }
+    /* Rimuovi eventuali pseudo-elementi dal titolo principale */
+    body.sky-theme main header h1::before,
+    body.sky-theme main header h1::after{
+      display:none !important;
+    }
+    /* Tabella migliorata */
+    body.sky-theme table{
+      background:rgba(255,255,255,.1);
+      backdrop-filter:blur(15px);
+      border:1px solid rgba(255,255,255,.25);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 4px 20px rgba(0,0,0,.2);
+    }
+    body.sky-theme table thead{background:rgba(255,255,255,.15)}
+    body.sky-theme table tbody tr:hover{background:rgba(255,255,255,.08)}
+    body.sky-theme table th, body.sky-theme table td{color:#f8fafc}
+    /* Sezioni individuali */
+    body.sky-theme section{
+      background:rgba(255,255,255,.06);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:16px;
+      padding:1.5rem;
+      margin-bottom:1.5rem;
+    }
+    /* Numerazione sezioni */
+    body.sky-theme h2{
+      position:relative;
+      padding-left:3rem;
+      color:#f8fafc;
+    }
+    body.sky-theme h2::before{
+      content:counter(section-counter);
+      counter-increment:section-counter;
+      position:absolute;
+      left:0;
+      top:0;
+      width:2rem;
+      height:2rem;
+      background:linear-gradient(135deg,rgba(255,255,255,.2),rgba(255,255,255,.1));
+      border:1px solid rgba(255,255,255,.3);
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:0.875rem;
+      font-weight:600;
+      color:#fff;
+    }
+    body.sky-theme main{counter-reset:section-counter}
+    body.sky-theme h3{color:#f8fafc}
+    body.sky-theme p, body.sky-theme ul li{color:rgba(248,250,252,0.85)}
+    body.sky-theme strong{color:#f8fafc}
+    /* Bordi colorati per le sezioni */
+    body.sky-theme .border-l-blue{border-left:4px solid rgba(59,130,246,0.7)}
+    body.sky-theme .border-l-green{border-left:4px solid rgba(34,197,94,0.7)}
+    body.sky-theme .border-l-purple{border-left:4px solid rgba(168,85,247,0.7)}
+    body.sky-theme .border-l-yellow{border-left:4px solid rgba(234,179,8,0.7)}
+    body.sky-theme .border-slate-800{--tw-border-opacity:1;border-color:rgba(255,255,255,.18)!important}
+    body.sky-theme .border-slate-700{--tw-border-opacity:1;border-color:rgba(255,255,255,.25)!important}
+    body.sky-theme footer{
+      background:rgba(0,30,50,.85);
+      backdrop-filter:blur(15px);
+      border-color:rgba(255,255,255,.15);
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-50 selection:bg-brand/20 sky-theme">
+  <header class="sticky top-0 z-40 border-b border-slate-800 backdrop-blur bg-slate-950/70">
+    <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xl tracking-widest font-semibold">WashDrive</a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="index.html" class="text-white/70 hover:text-white">Home</a>
+      </nav>
+    </div>
+  </header>
+  <main class="mx-auto max-w-3xl px-5 py-14 space-y-8">
+    <header>
+      <h1 class="text-3xl font-semibold">Cookie Policy</h1>
+      <p class="mt-3 text-white/70 text-sm leading-relaxed">WashDrive - Autolavaggio a Domicilio<br>
+      <span class="text-xs text-white/50">Ultimo aggiornamento: 4 ottobre 2025</span></p>
+    </header>
+    
+    <section>
+      <h2 class="text-xl font-semibold">Cosa sono i Cookie</h2>
+      <p class="text-white/80 text-sm mt-4">
+        I cookie sono piccoli file di testo che vengono memorizzati sul tuo dispositivo quando visiti un sito web. 
+        Ci aiutano a fornire, proteggere e migliorare i nostri servizi, personalizzando i contenuti e fornendo 
+        funzionalità di social media e analizzando il nostro traffico.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold">Tipi di Cookie che Utilizziamo</h2>
+      
+      <div class="space-y-6 mt-4">
+        <div class="border-l-blue pl-4">
+          <h3 class="text-lg font-semibold mb-2">Cookie Strettamente Necessari</h3>
+          <p class="text-white/80 text-sm mb-2">
+            Questi cookie sono essenziali per il funzionamento del sito web e non possono essere disabilitati. 
+            Sono solitamente impostati solo in risposta a azioni da te effettuate che costituiscono una richiesta di servizi.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-white/80 text-sm">
+            <li>Cookie di sessione per il funzionamento del sito</li>
+            <li>Cookie per le preferenze di sicurezza</li>
+            <li>Cookie per il banner dei cookie</li>
+          </ul>
+        </div>
+
+        <div class="border-l-green pl-4">
+          <h3 class="text-lg font-semibold mb-2">Cookie Analitici</h3>
+          <p class="text-white/80 text-sm mb-2">
+            Questi cookie ci permettono di contare le visite e le fonti di traffico, 
+            così possiamo misurare e migliorare le prestazioni del nostro sito.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-white/80 text-sm">
+            <li><strong>Google Analytics:</strong> Analisi del traffico e comportamento utenti</li>
+            <li><strong>Google Tag Manager:</strong> Gestione centralizzata dei tag</li>
+          </ul>
+        </div>
+
+        <div class="border-l-purple pl-4">
+          <h3 class="text-lg font-semibold mb-2">Cookie di Sicurezza</h3>
+          <p class="text-white/80 text-sm mb-2">
+            Utilizziamo questi cookie per proteggere il sito da spam e abusi.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-white/80 text-sm">
+            <li><strong>reCAPTCHA:</strong> Protezione da spam e bot</li>
+          </ul>
+        </div>
+
+        <div class="border-l-yellow pl-4">
+          <h3 class="text-lg font-semibold mb-2">Cookie di Preferenze</h3>
+          <p class="text-white/80 text-sm mb-2">
+            Questi cookie ci permettono di ricordare le tue preferenze e migliorare la tua esperienza.
+          </p>
+          <ul class="list-disc pl-5 space-y-1 text-white/80 text-sm">
+            <li>Preferenze tema (chiaro/scuro)</li>
+            <li>Impostazioni di accessibilità</li>
+            <li>Dati form salvati localmente</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold">Cookie di Terze Parti</h2>
+      <div class="mt-4">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b border-white/20">
+              <th class="text-left py-2">Servizio</th>
+              <th class="text-left py-2">Fornitore</th>
+              <th class="text-left py-2">Scopo</th>
+              <th class="text-left py-2">Durata</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-white/10">
+              <td class="py-2">Google Analytics</td>
+              <td class="py-2">Google LLC</td>
+              <td class="py-2">Analisi traffico</td>
+              <td class="py-2">2 anni</td>
+            </tr>
+            <tr class="border-b border-white/10">
+              <td class="py-2">reCAPTCHA</td>
+              <td class="py-2">Google LLC</td>
+              <td class="py-2">Sicurezza anti-spam</td>
+              <td class="py-2">6 mesi</td>
+            </tr>
+            <tr>
+              <td class="py-2">Google Fonts</td>
+              <td class="py-2">Google LLC</td>
+              <td class="py-2">Font web</td>
+              <td class="py-2">1 anno</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold">Gestione dei Cookie</h2>
+      <p class="text-white/80 text-sm mt-4 mb-4">
+        Puoi controllare e/o eliminare i cookie come desideri. Puoi eliminare tutti i cookie 
+        che sono già sul tuo computer e puoi impostare la maggior parte dei browser per 
+        impedire che vengano inseriti.
+      </p>
+      
+      <div class="bg-white/10 border border-white/20 rounded-lg p-4 mb-4">
+        <h3 class="font-semibold text-white mb-2">Come disabilitare i cookie</h3>
+        <ul class="list-disc pl-5 space-y-1 text-white/80 text-sm">
+          <li><strong>Chrome:</strong> Impostazioni → Privacy e sicurezza → Cookie</li>
+          <li><strong>Firefox:</strong> Opzioni → Privacy e sicurezza → Cookie</li>
+          <li><strong>Safari:</strong> Preferenze → Privacy → Cookie</li>
+          <li><strong>Edge:</strong> Impostazioni → Cookie e autorizzazioni sito</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold">Contatti</h2>
+      <p class="text-white/80 text-sm mt-4 mb-4">
+        Per qualsiasi domanda riguardo questa Cookie Policy, puoi contattarci:
+      </p>
+      <div class="bg-white/10 rounded-lg p-4">
+        <ul class="space-y-2 text-white/80 text-sm">
+          <li><strong>Email:</strong> washdrive25@gmail.com</li>
+          <li><strong>Telefono:</strong> +39 380 386 3461</li>
+          <li><strong>WhatsApp:</strong> +39 380 386 3461</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-xl font-semibold">Aggiornamenti</h2>
+      <p class="text-white/80 text-sm mt-4">
+        Questa Cookie Policy può essere aggiornata di tanto in tanto. 
+        Ti incoraggiamo a rivedere periodicamente questa pagina per le informazioni più recenti 
+        sulle nostre pratiche relative ai cookie.
+      </p>
+    </section>
+
+  </main>
+  <footer class="border-t border-slate-800 mt-10">
+    <div class="mx-auto max-w-6xl px-4 py-8 text-sm text-white/60 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>© <span id="year">2025</span> WashDrive • Tutti i diritti riservati</div>
+      <div class="flex gap-6">
+        <a class="hover:text-white" href="index.html">Home</a>
+      </div>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>

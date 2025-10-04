@@ -22,7 +22,7 @@ const mimeTypes = {
 
 // Server HTTP
 const server = http.createServer((req, res) => {
-  let filePath = path.join(__dirname, '..', req.url === '/' ? 'index.html' : req.url);
+  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
   
   // Security: previeni directory traversal
   if (filePath.includes('..') && !req.url.startsWith('/')) {
@@ -33,7 +33,7 @@ const server = http.createServer((req, res) => {
   
   // Se il file non esiste, prova con index.html (SPA routing)
   if (!fs.existsSync(filePath) && req.url !== '/') {
-    filePath = path.join(__dirname, '..', 'index.html');
+    filePath = path.join(__dirname, 'index.html');
   }
   
   const ext = path.extname(filePath);
