@@ -47,10 +47,12 @@
 
   function init() {
     console.log('🚀 Inizializzazione WashDrive...');
+    console.log('📊 Preparazione carousel e pacchetti...');
     setupNavigation();
     setupHeroInfoCarousel();
     setupPricingGrid();
     setupReviews();
+    setupOffers();
     setupFAQ();
     loadStoredBookings();
     setupForms();
@@ -58,6 +60,7 @@
     setupMobileMenu();
     setCurrentYear();
     setupCookieBanner();
+    
     setupBackToTop();
     if(typeof enhanceBackToTopProgress === 'function') {
       enhanceBackToTopProgress();
@@ -161,14 +164,8 @@
 
   // Carousel hero con info e pacchetti - FIXED ENCODING
   function setupHeroInfoCarousel() {
+    console.log('🎠 Inizializzazione carousel hero...');
     const slides = [
-      { 
-        type: 'live-stats',
-        icon: '📊', 
-        title: 'Statistiche Live', 
-        subtitle: 'Dati in tempo reale',
-        desc: 'Statistiche aggiornate automaticamente'
-      },
       { 
         icon: '🚗', 
         title: 'Servizio a domicilio', 
@@ -212,47 +209,15 @@
       slideEl.className = 'hero-info-slide';
       slideEl.setAttribute('aria-hidden', index !== 0 ? 'true' : 'false');
       
-      if (slide.type === 'live-stats') {
-        // Slide speciale per statistiche live
-        slideEl.innerHTML = `
-          <div class="text-center h-full flex flex-col justify-center p-6">
-            <div class="text-4xl mb-4">📊</div>
-            <div class="text-xl font-bold text-white mb-2">Statistiche Live</div>
-            <div class="text-sm font-medium mb-6 hero-subtitle transition-colors duration-700 text-fuchsia-400 flex items-center justify-center gap-2">
-              <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-              Dati in tempo reale
-            </div>
-            <div class="grid grid-cols-2 gap-4 max-w-sm mx-auto">
-              <div class="bg-gradient-to-br from-slate-800/70 to-slate-900/70 rounded-xl p-3 border border-slate-700/50 backdrop-blur-sm">
-                <div class="text-2xl font-bold text-amber-400" id="carsWashedToday">0</div>
-                <div class="text-white/70 text-xs mt-1">Auto oggi</div>
-              </div>
-              <div class="bg-gradient-to-br from-slate-800/70 to-slate-900/70 rounded-xl p-3 border border-slate-700/50 backdrop-blur-sm">
-                <div class="text-2xl font-bold text-blue-400" id="nextSlot">16:30</div>
-                <div class="text-white/70 text-xs mt-1">Prossimo slot</div>
-              </div>
-              <div class="bg-gradient-to-br from-slate-800/70 to-slate-900/70 rounded-xl p-3 border border-slate-700/50 backdrop-blur-sm">
-                <div class="text-2xl font-bold text-green-400" id="avgRating">4.9</div>
-                <div class="text-white/70 text-xs mt-1">Rating medio</div>
-              </div>
-              <div class="bg-gradient-to-br from-slate-800/70 to-slate-900/70 rounded-xl p-3 border border-slate-700/50 backdrop-blur-sm">
-                <div class="text-2xl font-bold text-purple-400" id="activeTechs">1</div>
-                <div class="text-white/70 text-xs mt-1">Operatori attivi</div>
-              </div>
-            </div>
-          </div>
-        `;
-      } else {
-        // Slide normale
-        slideEl.innerHTML = `
-          <div class="text-center">
-            <div class="text-3xl mb-3">${slide.icon}</div>
-            <div class="text-lg font-bold text-white mb-1">${slide.title}</div>
-            <div class="text-xs font-medium mb-3 hero-subtitle transition-colors duration-700 text-amber-400">${slide.subtitle}</div>
-            <div class="text-xs text-white/80 leading-relaxed px-2">${slide.desc}</div>
-          </div>
-        `;
-      }
+      // Tutte le slide sono slide standard
+      slideEl.innerHTML = `
+        <div class="text-center">
+          <div class="text-3xl mb-3">${slide.icon}</div>
+          <div class="text-lg font-bold text-white mb-1">${slide.title}</div>
+          <div class="text-xs font-medium mb-3 hero-subtitle transition-colors duration-700 text-amber-400">${slide.subtitle}</div>
+          <div class="text-xs text-white/80 leading-relaxed px-2">${slide.desc}</div>
+        </div>
+      `;
       
       slidesContainer.appendChild(slideEl);
 
@@ -327,6 +292,7 @@
 
   // Griglia prezzi - FIXED ENCODING
   function setupPricingGrid() {
+    console.log('🛠️ Inizializzazione griglia prezzi...');
     const pricing = [
       {
         name: 'Soft Clean',
@@ -1544,6 +1510,216 @@
     currentDisplay.setAttribute('aria-expanded', 'false');
     currentDisplay.setAttribute('aria-haspopup', 'listbox');
     currentDisplay.setAttribute('aria-labelledby', 'servizi-extra-label');
+  }
+
+  // SETUP OFFERS CAROUSEL
+  let currentOfferIndex = 0;
+  let offerRotationInterval = null;
+  
+  function setupOffers() {
+    const container = document.getElementById('offers');
+    if (!container) return;
+
+    container.innerHTML = `
+      <div id="offersCarousel" class="relative group" tabindex="0" aria-label="Carousel offerte">
+        <div id="offerSlides" class="overflow-hidden relative h-[280px]"></div>
+        <button type="button" id="offerPrev" aria-label="Precedente" class="hidden md:flex opacity-0 group-hover:opacity-100 transition-opacity absolute top-1/2 -translate-y-1/2 -left-3 bg-slate-800/70 hover:bg-slate-700 text-white w-8 h-8 rounded-full items-center justify-center text-sm">‹</button>
+        <button type="button" id="offerNext" aria-label="Successivo" class="hidden md:flex opacity-0 group-hover:opacity-100 transition-opacity absolute top-1/2 -translate-y-1/2 -right-3 bg-slate-800/70 hover:bg-slate-700 text-white w-8 h-8 rounded-full items-center justify-center text-sm">›</button>
+        <div id="offerDots" class="flex gap-2 justify-center mt-4"></div>
+      </div>`;
+
+    renderOffersCarousel();
+    initOfferControls();
+    if (!prefersReducedMotion) startOfferRotation();
+  }
+
+  const offers = [
+    {
+      id: 'primo-lavaggio',
+      icon: '🎉',
+      title: 'Primo Lavaggio',
+      discount: '-20%',
+      originalPrice: '€50',
+      finalPrice: '€40',
+      description: 'Sconto del 20% sul primo lavaggio per nuovi clienti',
+      validity: 'Valido fino al 31/12/2025',
+      gradient: 'from-red-600/20 to-orange-600/20',
+      border: 'border-red-600/30',
+      badge: 'bg-red-600'
+    },
+    {
+      id: 'combo-completo',
+      icon: '💎',
+      title: 'Combo Completo',
+      discount: 'COMBO',
+      originalPrice: '€200',
+      finalPrice: '€170',
+      description: 'Lavaggio Premium + Aspirazione interni + Ceratura',
+      validity: 'Pacchetto combinato convenienza',
+      gradient: 'from-blue-600/20 to-cyan-600/20',
+      border: 'border-blue-600/30',
+      badge: 'bg-blue-600'
+    },
+    {
+      id: 'fidelity-card',
+      icon: '🎫',
+      title: 'Carta Fedeltà',
+      discount: '6° GRATIS',
+      originalPrice: '€600',
+      finalPrice: '€500',
+      description: 'Ogni 5 lavaggi Standard, il 6° è completamente gratuito',
+      validity: 'Carta digitale sempre attiva',
+      gradient: 'from-green-600/20 to-emerald-600/20',
+      border: 'border-green-600/30',
+      badge: 'bg-green-600'
+    }
+  ];
+
+  function renderOffersCarousel() {
+    const slidesContainer = document.getElementById('offerSlides');
+    const dotsContainer = document.getElementById('offerDots');
+    
+    if (!slidesContainer || !dotsContainer) return;
+
+    // Render slides
+    slidesContainer.innerHTML = offers.map((offer, index) => `
+      <div class="absolute inset-0 transition-all duration-500 ease-in-out ${index === 0 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'}" data-slide="${index}">
+        <div class="bg-gradient-to-r ${offer.gradient} border ${offer.border} rounded-lg p-5 h-full">
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-semibold text-white flex items-center gap-2">
+              <span class="text-xl">${offer.icon}</span>
+              ${offer.title}
+            </h3>
+            <span class="${offer.badge} text-white text-xs px-2 py-1 rounded-full font-bold">${offer.discount}</span>
+          </div>
+          
+          <div class="mb-4">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="text-sm text-white/50 line-through">${offer.originalPrice}</span>
+              <span class="text-xl font-bold text-white">${offer.finalPrice}</span>
+            </div>
+            <p class="text-sm text-white/80 leading-relaxed mb-2">${offer.description}</p>
+            <p class="text-xs text-white/60">${offer.validity}</p>
+          </div>
+          
+          <button onclick="window.open('offerte.html', '_blank')" class="w-full mt-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-md py-2 px-4 text-sm font-medium text-white transition-colors">
+            Scopri di più
+          </button>
+        </div>
+      </div>
+    `).join('');
+
+    // Render dots
+    dotsContainer.innerHTML = offers.map((_, index) => `
+      <button type="button" class="w-2 h-2 rounded-full transition-colors ${index === 0 ? 'bg-white' : 'bg-white/30'}" data-dot="${index}" aria-label="Vai all'offerta ${index + 1}"></button>
+    `).join('');
+  }
+
+  function showOfferSlide(index) {
+    const slides = document.querySelectorAll('#offerSlides [data-slide]');
+    const dots = document.querySelectorAll('#offerDots [data-dot]');
+    
+    if (!slides.length || !dots.length) return;
+    
+    // Hide current slide
+    slides[currentOfferIndex].classList.add('opacity-0', 'translate-x-full');
+    slides[currentOfferIndex].classList.remove('opacity-100', 'translate-x-0');
+    dots[currentOfferIndex].classList.remove('bg-white');
+    dots[currentOfferIndex].classList.add('bg-white/30');
+    
+    // Show new slide
+    currentOfferIndex = index;
+    slides[currentOfferIndex].classList.remove('opacity-0', 'translate-x-full');
+    slides[currentOfferIndex].classList.add('opacity-100', 'translate-x-0');
+    dots[currentOfferIndex].classList.add('bg-white');
+    dots[currentOfferIndex].classList.remove('bg-white/30');
+  }
+
+  function initOfferControls() {
+    const prevBtn = document.getElementById('offerPrev');
+    const nextBtn = document.getElementById('offerNext');
+    const dotsContainer = document.getElementById('offerDots');
+    
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        const newIndex = (currentOfferIndex - 1 + offers.length) % offers.length;
+        showOfferSlide(newIndex);
+        resetOfferRotation();
+      });
+    }
+    
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        const newIndex = (currentOfferIndex + 1) % offers.length;
+        showOfferSlide(newIndex);
+        resetOfferRotation();
+      });
+    }
+    
+    if (dotsContainer) {
+      dotsContainer.addEventListener('click', (e) => {
+        const dot = e.target.closest('[data-dot]');
+        if (dot) {
+          const index = parseInt(dot.dataset.dot);
+          showOfferSlide(index);
+          resetOfferRotation();
+        }
+      });
+    }
+
+    // Swipe mobile per offerte
+    const slidesContainer = document.getElementById('offerSlides');
+    if (slidesContainer && !slidesContainer.dataset.swipeBound) {
+      let touchStartX = 0, touchEndX = 0, touchMoved = false;
+      
+      slidesContainer.addEventListener('touchstart', e => {
+        if (e.touches.length !== 1) return;
+        touchStartX = e.touches[0].clientX;
+        touchMoved = false;
+      }, {passive: true});
+      
+      slidesContainer.addEventListener('touchmove', e => {
+        if (e.touches.length !== 1) return;
+        const dx = Math.abs(e.touches[0].clientX - touchStartX);
+        if (dx > 8) touchMoved = true;
+        if (touchMoved) e.preventDefault();
+      }, {passive: false});
+      
+      slidesContainer.addEventListener('touchend', e => {
+        if (!touchMoved) return;
+        touchEndX = e.changedTouches[0].clientX;
+        const delta = touchEndX - touchStartX;
+        if (Math.abs(delta) < 40) return;
+        
+        if (delta < 0) {
+          // Swipe left -> next
+          const newIndex = (currentOfferIndex + 1) % offers.length;
+          showOfferSlide(newIndex);
+        } else {
+          // Swipe right -> prev
+          const newIndex = (currentOfferIndex - 1 + offers.length) % offers.length;
+          showOfferSlide(newIndex);
+        }
+        resetOfferRotation();
+      });
+      
+      slidesContainer.dataset.swipeBound = 'true';
+    }
+  }
+
+  function startOfferRotation() {
+    if (offerRotationInterval) clearInterval(offerRotationInterval);
+    offerRotationInterval = setInterval(() => {
+      const newIndex = (currentOfferIndex + 1) % offers.length;
+      showOfferSlide(newIndex);
+    }, 4000);
+  }
+
+  function resetOfferRotation() {
+    if (offerRotationInterval) {
+      clearInterval(offerRotationInterval);
+      if (!prefersReducedMotion) startOfferRotation();
+    }
   }
 
 })();

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Offerte Speciali - WashDrive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/x-icon" href="assets/logo.png">
+  <style>
+    body { 
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body class="text-white">
+  <!-- Header -->
+  <header class="bg-slate-900/80 backdrop-blur-sm border-b border-slate-700">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="WashDrive Logo" class="w-10 h-10">
+        <h1 class="text-xl font-bold">WashDrive</h1>
+      </div>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="index.html" class="text-white/70 hover:text-white transition-colors">Home</a>
+        <a href="offerte.html" class="text-white font-semibold">Offerte</a>
+        <a href="carta-fedelta.html" class="text-white/70 hover:text-white transition-colors">Carta Fedeltà</a>
+      </nav>
+      <button id="mobileMenuBtn" class="md:hidden text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 text-center">
+    <div class="mx-auto max-w-4xl px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        🎯 <span class="bg-gradient-to-r from-red-400 via-yellow-400 to-green-400 bg-clip-text text-transparent">Offerte Speciali</span>
+      </h1>
+      <p class="text-xl text-white/80 mb-8">Approfitta delle nostre promozioni esclusive per il tuo autolavaggio</p>
+      <div class="w-24 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- Offerte Cards -->
+  <section class="py-16">
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="grid md:grid-cols-3 gap-8 justify-items-center max-w-5xl mx-auto">
+        
+        <!-- Offerta 1: Primo Lavaggio -->
+        <div class="bg-gradient-to-br from-red-600/20 to-orange-600/20 border border-red-600/30 rounded-xl p-6 relative overflow-hidden w-full max-w-sm cursor-pointer hover:scale-105 transition-transform" onclick="selectPrimoLavaggio()">
+          <div class="absolute top-0 right-0 bg-red-600 text-white text-xs px-3 py-1 rounded-bl-lg font-bold">
+            NUOVO CLIENTE
+          </div>
+          <div class="text-center mb-6 mt-4">
+            <div class="text-5xl mb-3">🎉</div>
+            <h2 class="text-2xl font-bold text-red-400 mb-2">Primo Lavaggio</h2>
+            <div class="flex items-center justify-center gap-3 mb-4">
+              <span class="text-xl text-white/50 line-through">€50</span>
+              <span class="text-3xl font-bold text-white">€40</span>
+            </div>
+            <div class="bg-red-600 text-white text-sm px-4 py-2 rounded-full inline-block font-bold">
+              RISPARMIA €10
+            </div>
+          </div>
+          
+          <div class="space-y-4 mb-6">
+            <div class="flex items-center gap-3">
+              <span class="text-green-400">✓</span>
+              <span class="text-sm">Sconto del 20% garantito</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-green-400">✓</span>
+              <span class="text-sm">Valido su tutti i pacchetti base</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-green-400">✓</span>
+              <span class="text-sm">Solo per nuovi clienti</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-blue-400">📅</span>
+              <span class="text-xs text-white/60">Valido fino al 31/12/2025</span>
+            </div>
+          </div>
+          
+          <button class="w-full bg-red-600 hover:bg-red-500 text-white font-semibold py-3 rounded-lg transition-colors">
+            Seleziona Offerta
+          </button>
+        </div>
+
+        <!-- Offerta 2: Combo Completo -->
+        <div class="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 border border-blue-600/30 rounded-xl p-6 relative overflow-hidden w-full max-w-sm cursor-pointer hover:scale-105 transition-transform" onclick="selectComboCompleto()">
+          <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs px-3 py-1 rounded-bl-lg font-bold">
+            COMBO DEAL
+          </div>
+          <div class="text-center mb-6 mt-4">
+            <div class="text-5xl mb-3">💎</div>
+            <h2 class="text-2xl font-bold text-blue-400 mb-2">Combo Completo</h2>
+            <div class="flex items-center justify-center gap-3 mb-4">
+              <span class="text-xl text-white/50 line-through">€200</span>
+              <span class="text-3xl font-bold text-white">€170</span>
+            </div>
+            <div class="bg-blue-600 text-white text-sm px-4 py-2 rounded-full inline-block font-bold">
+              RISPARMIA €30
+            </div>
+          </div>
+          
+          <div class="space-y-4 mb-6">
+            <div class="flex items-center gap-3">
+              <span class="text-green-400">✓</span>
+              <span class="text-sm">Lavaggio Premium completo</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-green-400">✓</span>
+              <span class="text-sm">Aspirazione interni inclusa</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-green-400">✓</span>
+              <span class="text-sm">Ceratura protettiva</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-blue-400">💎</span>
+              <span class="text-xs text-white/60">Pacchetto combinato convenienza</span>
+            </div>
+          </div>
+          
+          <button class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg transition-colors">
+            Seleziona Offerta
+          </button>
+        </div>
+
+        <!-- Offerta 3: Carta Fedeltà -->
+        <div class="bg-gradient-to-br from-green-600/20 to-emerald-600/20 border border-green-600/30 rounded-xl p-6 relative overflow-hidden w-full max-w-sm cursor-pointer hover:scale-105 transition-transform" onclick="openCartaFedelta()">
+          <div class="absolute top-0 right-0 bg-yellow-600 text-white text-xs px-3 py-1 rounded-bl-lg font-bold animate-pulse">
+            COMING SOON
+          </div>
+          <div class="text-center mb-6 mt-4">
+            <div class="text-5xl mb-3">🎫</div>
+            <h2 class="text-2xl font-bold text-green-400 mb-2">Carta Fedeltà</h2>
+            <div class="flex items-center justify-center gap-3 mb-4">
+              <span class="text-2xl font-bold text-white/60">Prezzi in definizione</span>
+            </div>
+            <div class="bg-yellow-600 text-white text-sm px-4 py-2 rounded-full inline-block font-bold">
+              🚧 IN SVILUPPO 🚧
+            </div>
+          </div>
+          
+          <div class="space-y-4 mb-6">
+            <div class="flex items-center gap-3">
+              <span class="text-yellow-400">🔜</span>
+              <span class="text-sm">Ogni 5 lavaggi, il 6° gratis</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-yellow-400">🔜</span>
+              <span class="text-sm">Carta digitale sempre attiva</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-yellow-400">🔜</span>
+              <span class="text-sm">Sconti esclusivi riservati</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <span class="text-blue-400">�</span>
+              <span class="text-xs text-white/60">Disponibile prossimamente</span>
+            </div>
+          </div>
+          
+          <button class="w-full bg-yellow-600 hover:bg-yellow-500 text-white font-semibold py-3 rounded-lg transition-colors">
+            Scopri l'Anteprima
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Termini e Condizioni -->
+  <section class="py-16 bg-slate-900/50">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-2xl font-bold mb-8 text-center">📋 Termini e Condizioni</h2>
+      <div class="grid md:grid-cols-2 gap-8 text-sm text-white/70 max-w-3xl mx-auto">
+        <div class="text-center">
+          <h3 class="font-semibold text-white mb-4">🎉 Primo Lavaggio</h3>
+          <ul class="space-y-2 text-center">
+            <li>• Valido solo per nuovi clienti</li>
+            <li>• Sconto applicabile sui pacchetti base</li>
+            <li>• Non cumulabile con altre offerte</li>
+            <li>• Valido fino al 31/12/2025</li>
+          </ul>
+        </div>
+        <div class="text-center">
+          <h3 class="font-semibold text-white mb-4">💎 Combo Completo</h3>
+          <ul class="space-y-2 text-center">
+            <li>• Include lavaggio + aspirazione + ceratura</li>
+            <li>• Prenotazione obbligatoria</li>
+            <li>• Disponibile tutti i giorni</li>
+            <li>• Offerta a tempo limitato</li>
+          </ul>
+        </div>
+        <div class="text-center">
+          <h3 class="font-semibold text-white mb-4">🎫 Carta Fedeltà</h3>
+          <ul class="space-y-2 text-center">
+            <li>• 🚧 In fase di sviluppo</li>
+            <li>• Ogni 5 lavaggi standard, il 6° gratis</li>
+            <li>• Carta digitale, sempre disponibile</li>
+            <li>• Lancio previsto prossimi mesi</li>
+          </ul>
+        </div>
+        <div class="text-center">
+          <h3 class="font-semibold text-white mb-4">⚠️ Note Generali</h3>
+          <ul class="space-y-2 text-center">
+            <li>• Offerte non cumulabili tra loro</li>
+            <li>• Prezzi soggetti a variazione</li>
+            <li>• Prenotazione consigliata</li>
+            <li>• Info: washdrive25@gmail.com</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 text-center">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl font-bold mb-6">Pronto per risparmiare?</h2>
+      <p class="text-xl text-white/80 mb-8">Scegli l'offerta più adatta alle tue esigenze e prenota subito!</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="index.html#contatti" class="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-semibold px-8 py-3 rounded-lg transition-all">
+          Prenota Ora
+        </a>
+        <a href="index.html" class="border border-white/20 hover:bg-white/10 text-white font-semibold px-8 py-3 rounded-lg transition-all">
+          Torna alla Home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-950/80">
+    <div class="mx-auto max-w-6xl px-4 py-10 grid md:grid-cols-2 gap-6 items-start text-sm">
+      <div class="text-white/60">
+        <div class="mb-4">
+          <h4 class="text-white font-semibold text-base md:text-lg">📍 Informazioni di contatto</h4>
+          <div class="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 mt-1"></div>
+        </div>
+        <ul class="mt-2 space-y-2 text-sm md:text-base text-white/50 leading-relaxed">
+          <li><span class="text-blue-400 font-medium">🚗 WashDrive</span> • P.IVA 02554240503</li>
+          <li><span class="text-yellow-400">📧</span> <a href="mailto:info@washdrive.it" class="hover:text-white transition-colors">info@washdrive.it</a></li>
+          <li><span class="text-green-400">📱</span> <a href="tel:+393123456789" class="hover:text-white transition-colors">+39 312 345 6789</a></li>
+          <li><span class="text-red-400">📍</span> Via Roma 123, 00100 Roma</li>
+        </ul>
+      </div>
+      
+      <div class="text-white/60 text-right">
+        <div class="mb-4">
+          <h4 class="text-white font-semibold text-base md:text-lg">📋 Info legali</h4>
+          <div class="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 mt-1 ml-auto"></div>
+        </div>
+        <ul class="mt-2 space-y-2 text-sm md:text-base text-white/50 leading-relaxed">
+          <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Termini di Servizio</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Copyright centrato -->
+    <div class="border-t border-white/10 py-4">
+      <div class="mx-auto max-w-6xl px-4 text-center">
+        <p class="text-xs text-white/50">© 2025 WashDrive - Tutti i diritti riservati</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn')?.addEventListener('click', function() {
+      // Add mobile menu functionality if needed
+      console.log('Mobile menu clicked');
+    });
+
+    // Funzioni per gestire i click sulle offerte
+    function selectPrimoLavaggio() {
+      // Salva l'offerta selezionata nel localStorage
+      localStorage.setItem('selectedOffer', JSON.stringify({
+        type: 'primo-lavaggio',
+        name: 'Primo Lavaggio',
+        discount: '20%',
+        originalPrice: 50,
+        finalPrice: 40,
+        description: 'Sconto del 20% per nuovi clienti'
+      }));
+      
+      // Reindirizza alla home con l'offerta selezionata
+      window.location.href = 'index.html#contatti';
+    }
+
+    function selectComboCompleto() {
+      // Salva l'offerta selezionata nel localStorage
+      localStorage.setItem('selectedOffer', JSON.stringify({
+        type: 'combo-completo',
+        name: 'Combo Completo',
+        discount: 'COMBO',
+        originalPrice: 200,
+        finalPrice: 170,
+        description: 'Lavaggio Premium + Aspirazione + Ceratura'
+      }));
+      
+      // Reindirizza alla home con l'offerta selezionata
+      window.location.href = 'index.html#contatti';
+    }
+
+    function openCartaFedelta() {
+      // Per la carta fedeltà, apri una pagina dedicata
+      window.open('carta-fedelta.html', '_blank');
+    }
+  </script>
+</body>
+</html>

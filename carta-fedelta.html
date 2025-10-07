@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Fedeltà - WashDrive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="icon" type="image/x-icon" href="assets/logo.png">
+  <style>
+    body { 
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+      min-height: 100vh;
+    }
+    
+    /* Stili per il slider */
+    .slider::-webkit-slider-thumb {
+      appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #10b981;
+      cursor: pointer;
+      box-shadow: 0 0 2px 0 #000;
+    }
+    
+    .slider::-moz-range-thumb {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      background: #10b981;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 0 2px 0 #000;
+    }
+    
+    /* Animazioni per i bottoni servizio */
+    .service-btn {
+      transition: all 0.3s ease;
+    }
+    
+    .service-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+<body class="text-white">
+  <!-- Header -->
+  <header class="bg-slate-900/80 backdrop-blur-sm border-b border-slate-700">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.png" alt="WashDrive Logo" class="w-10 h-10">
+        <h1 class="text-xl font-bold">WashDrive</h1>
+      </div>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="index.html" class="text-white/70 hover:text-white transition-colors">Home</a>
+        <a href="offerte.html" class="text-white/70 hover:text-white transition-colors">Offerte</a>
+        <a href="carta-fedelta.html" class="text-white font-semibold">Carta Fedeltà</a>
+      </nav>
+      <button id="mobileMenuBtn" class="md:hidden text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 text-center">
+    <div class="mx-auto max-w-4xl px-4">
+      <div class="text-6xl mb-6">🎫</div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        <span class="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">Carta Fedeltà</span>
+      </h1>
+      <div class="bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-bold px-6 py-3 rounded-full inline-block mb-6 animate-pulse">
+        🚧 COMING SOON 🚧
+      </div>
+      <p class="text-xl text-white/80 mb-8">Il programma di fedeltà digitale che ti premia ad ogni lavaggio</p>
+      <p class="text-lg text-yellow-400 mb-8">⏳ Stiamo preparando qualcosa di speciale per te!</p>
+      <div class="w-24 h-1 bg-gradient-to-r from-green-400 to-emerald-400 mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- Anteprima Funzionalità -->
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">🎯 Cosa Arriverà</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center opacity-75">
+          <div class="bg-green-600/20 border border-green-600/30 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">1️⃣</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Registrazione Facile</h3>
+          <p class="text-white/70">Attivazione gratuita della carta fedeltà digitale</p>
+        </div>
+        <div class="text-center opacity-75">
+          <div class="bg-green-600/20 border border-green-600/30 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">2️⃣</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Accumulo Punti</h3>
+          <p class="text-white/70">Ogni lavaggio ti avvicinerà al premio</p>
+        </div>
+        <div class="text-center opacity-75">
+          <div class="bg-green-600/20 border border-green-600/30 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl">3️⃣</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-3">Premi Esclusivi</h3>
+          <p class="text-white/70">Il 6° lavaggio sarà completamente gratuito!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vantaggi Futuri -->
+  <section class="py-16 bg-slate-900/50">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">✨ Vantaggi in Arrivo</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-gradient-to-r from-green-600/20 to-emerald-600/20 border border-green-600/30 rounded-lg p-6 opacity-75">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-3xl">🎁</span>
+            <h3 class="text-xl font-semibold">6° Lavaggio Gratis</h3>
+          </div>
+          <p class="text-white/70">Ogni 5 lavaggi standard, riceverai il 6° completamente gratuito</p>
+        </div>
+        
+        <div class="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-600/30 rounded-lg p-6 opacity-75">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-3xl">📱</span>
+            <h3 class="text-xl font-semibold">Carta Digitale</h3>
+          </div>
+          <p class="text-white/70">Sempre nel tuo smartphone, impossibile perderla o dimenticarla</p>
+        </div>
+        
+        <div class="bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-600/30 rounded-lg p-6 opacity-75">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-3xl">🏷️</span>
+            <h3 class="text-xl font-semibold">Sconti Esclusivi</h3>
+          </div>
+          <p class="text-white/70">Offerte riservate solo ai possessori della carta fedeltà</p>
+        </div>
+        
+        <div class="bg-gradient-to-r from-orange-600/20 to-red-600/20 border border-orange-600/30 rounded-lg p-6 opacity-75">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-3xl">⚡</span>
+            <h3 class="text-xl font-semibold">Servizio Prioritario</h3>
+          </div>
+          <p class="text-white/70">Prenotazioni veloci e servizio prioritario per i membri</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notifica Coming Soon -->
+  <section class="py-16 bg-slate-900/50">
+    <div class="mx-auto max-w-2xl px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">� Rimani Aggiornato</h2>
+      <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-8">
+        <div class="text-center mb-6">
+          <div class="text-4xl mb-4">🔔</div>
+          <h3 class="text-xl font-semibold mb-3">Notificami quando sarà pronta!</h3>
+          <p class="text-white/70">Inserisci la tua email per ricevere una notifica non appena la Carta Fedeltà sarà disponibile</p>
+        </div>
+        
+        <form class="space-y-4">
+          <div>
+            <input type="email" required class="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-white/50 focus:border-green-400 focus:ring-1 focus:ring-green-400" placeholder="la-tua-email@email.com">
+          </div>
+          
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="privacy-notify" required class="mt-1 w-4 h-4 text-green-600 bg-slate-700 border-slate-600 rounded focus:ring-green-400">
+            <label for="privacy-notify" class="text-sm text-white/70">
+              Accetto di ricevere notifiche via email e la <a href="privacy.html" class="text-green-400 hover:text-green-300 underline">privacy policy</a> *
+            </label>
+          </div>
+          
+          <button type="submit" class="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-semibold py-4 rounded-lg transition-all transform hover:scale-105">
+            🔔 Notificami Quando Sarà Pronta
+          </button>
+        </form>
+        
+        <div class="mt-6 text-center text-sm text-white/60">
+          <p>📅 Lancio previsto: <span class="text-green-400 font-semibold">Prossimi mesi</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16">
+    <div class="mx-auto max-w-4xl px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">❓ Domande Frequenti</h2>
+      <div class="space-y-6">
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+          <h3 class="font-semibold text-lg mb-3">🔍 Come posso controllare i miei punti?</h3>
+          <p class="text-white/70">Riceverai un SMS o email dopo ogni lavaggio con il tuo saldo aggiornato. Inoltre puoi sempre chiedere al nostro staff.</p>
+        </div>
+        
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+          <h3 class="font-semibold text-lg mb-3">⏳ I punti scadono?</h3>
+          <p class="text-white/70">No! I tuoi punti non scadono mai, puoi accumularli senza fretta e utilizzarli quando preferisci.</p>
+        </div>
+        
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+          <h3 class="font-semibold text-lg mb-3">🎁 Posso regalare la carta fedeltà?</h3>
+          <p class="text-white/70">Certamente! Puoi regalare una carta fedeltà a familiari e amici. È un regalo perfetto per chi ama la propria auto.</p>
+        </div>
+        
+        <div class="bg-slate-800/50 border border-slate-700 rounded-lg p-6">
+          <h3 class="font-semibold text-lg mb-3">💳 Quanto costa l'attivazione?</h3>
+          <p class="text-white/70">L'attivazione della carta fedeltà è completamente gratuita e senza costi nascosti!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 bg-slate-950/80">
+    <div class="mx-auto max-w-6xl px-4 py-10 grid md:grid-cols-2 gap-6 items-start text-sm">
+      <div class="text-white/60">
+        <div class="mb-4">
+          <h4 class="text-white font-semibold text-base md:text-lg">📍 Informazioni di contatto</h4>
+          <div class="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 mt-1"></div>
+        </div>
+        <ul class="mt-2 space-y-2 text-sm md:text-base text-white/50 leading-relaxed">
+          <li><span class="text-blue-400 font-medium">🚗 WashDrive</span> • P.IVA 02554240503</li>
+          <li><span class="text-yellow-400">📧</span> <a href="mailto:washdrive25@gmail.com" class="hover:text-white transition-colors">washdrive25@gmail.com</a></li>
+          <li><span class="text-green-400">📱</span> <a href="tel:+393123456789" class="hover:text-white transition-colors">+39 312 345 6789</a></li>
+          <li><span class="text-red-400">📍</span> Via Roma 123, 00100 Roma</li>
+        </ul>
+      </div>
+      
+      <div class="text-white/60 text-right">
+        <div class="mb-4">
+          <h4 class="text-white font-semibold text-base md:text-lg">📋 Info legali</h4>
+          <div class="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 mt-1 ml-auto"></div>
+        </div>
+        <ul class="mt-2 space-y-2 text-sm md:text-base text-white/50 leading-relaxed">
+          <li><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Termini di Servizio</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Copyright centrato -->
+    <div class="border-t border-white/10 py-4">
+      <div class="mx-auto max-w-6xl px-4 text-center">
+        <p class="text-xs text-white/50">© 2025 WashDrive - Tutti i diritti riservati</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('mobileMenuBtn')?.addEventListener('click', function() {
+      console.log('Mobile menu clicked');
+    });
+
+    // Form submission per notifiche
+    document.querySelector('form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('✅ Perfetto! Ti invieremo una notifica non appena la Carta Fedeltà sarà disponibile. Grazie per l\'interesse!');
+    });
+  </script>
+</body>
+</html>

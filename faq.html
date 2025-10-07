@@ -1,490 +1,600 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Domande frequenti (FAQ) | WashDrive - Autolavaggio a Domicilio</title>
-  <meta name="description" content="FAQ WashDrive: tutto quello che devi sapere su prenotazioni, aree servite, tempi di lavoro, pagamento, lavaggio waterless, cancellazioni e trattamenti extra." />
-  <meta name="keywords" content="faq autolavaggio, domande frequenti, waterless, prenotazione autolavaggio, tempi lavaggio" />
-  <link rel="canonical" href="/faq.html" />
-
-  <!-- Fonts e Tailwind (allineato a index.html) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { 
-      theme: { 
-        extend: { 
-          colors: { 
-            brand: '#f59e0b',
-            primary: '#3b82f6',
-            accent: '#10b981',
-            purple: '#8b5cf6'
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.6s ease-out',
-            'slide-up': 'slideUp 0.5s ease-out',
-            'bounce-in': 'bounceIn 0.8s ease-out'
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: '0', transform: 'translateY(20px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' }
-            },
-            slideUp: {
-              '0%': { opacity: '0', transform: 'translateY(30px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' }
-            },
-            bounceIn: {
-              '0%': { opacity: '0', transform: 'scale(0.3)' },
-              '50%': { opacity: '1', transform: 'scale(1.05)' },
-              '70%': { transform: 'scale(0.9)' },
-              '100%': { transform: 'scale(1)' }
-            }
-          }
-        } 
-      } 
-    };
-  </script>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Domande Frequenti - WashDrive</title>
+  <link rel="icon" type="image/x-icon" href="assets/logo.png">
   <style>
-    body {
-      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body { 
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
       min-height: 100vh;
+      color: white;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
     
-    .hero-bg {
-      background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 50%, #6bcf7f 100%);
-      background-size: 300% 300%;
-      animation: gradientShift 8s ease infinite;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
     
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    .container-small {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
     
-    .faq-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border: 2px solid transparent;
-      background-clip: padding-box;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
+    /* Header */
+    .header {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(71, 85, 105, 0.5);
+      padding: 16px 0;
     }
     
-    .faq-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-      transition: left 0.5s;
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     
-    .faq-card:hover::before {
-      left: 100%;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     
-    .faq-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-      border-image: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1) 1;
+    .logo img {
+      width: 40px;
+      height: 40px;
     }
     
-    .faq-card[open] {
-      border-image: linear-gradient(45deg, #f59e0b, #ff6b6b, #8b5cf6) 1;
-      background: rgba(255, 255, 255, 0.98);
+    .logo h1 {
+      font-size: 20px;
+      font-weight: bold;
     }
     
-    .faq-icon {
-      transition: all 0.3s ease;
-      background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
     }
     
-    .faq-card[open] .faq-icon {
-      transform: rotate(45deg) scale(1.1);
-      background: linear-gradient(135deg, #f59e0b, #ff6b6b);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .nav a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: color 0.3s;
     }
     
-    .glass-nav {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    .nav a:hover, .nav a.active {
+      color: white;
+      font-weight: 600;
+    }
+    
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 80px 0;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 24px;
     }
     
     .gradient-text {
-      background: linear-gradient(135deg, #ff6b6b, #4ecdc4, #45b7d1);
+      background: linear-gradient(to right, #60a5fa, #a855f7, #06b6d4);
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-size: 200% 200%;
-      animation: gradientShift 3s ease infinite;
     }
     
-    .btn-gradient {
-      background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-      transition: all 0.3s ease;
+    .hero p {
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 32px;
     }
     
-    .btn-gradient:hover {
-      background: linear-gradient(135deg, #ff5252, #26d0ce);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    .divider {
+      width: 96px;
+      height: 4px;
+      background: linear-gradient(to right, #60a5fa, #06b6d4);
+      margin: 0 auto;
     }
     
-    .btn-outline {
-      border: 2px solid transparent;
-      background: linear-gradient(white, white) padding-box,
-                  linear-gradient(135deg, #ff6b6b, #4ecdc4) border-box;
-      color: #333;
-      transition: all 0.3s ease;
+    /* FAQ */
+    .faq-section {
+      padding: 64px 0;
     }
     
-    .btn-outline:hover {
-      background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    
+    .faq-item {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid rgba(71, 85, 105, 0.5);
+      border-radius: 12px;
+      padding: 24px;
+      transition: background-color 0.3s;
+    }
+    
+    .faq-item:hover {
+      background: rgba(30, 41, 59, 0.7);
+    }
+    
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      margin: 0;
+    }
+    
+    .faq-question h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0;
+      padding-right: 16px;
+    }
+    
+    .faq-toggle {
+      font-size: 24px;
+      transition: transform 0.3s;
+      color: #60a5fa;
+    }
+    
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+    
+    .faq-answer.open {
+      max-height: 200px;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(71, 85, 105, 0.5);
+    }
+    
+    .faq-answer p {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+    }
+    
+    .highlight {
+      color: #60a5fa;
+      font-weight: 600;
+    }
+    
+    .highlight.green { color: #10b981; }
+    .highlight.yellow { color: #f59e0b; }
+    .highlight.red { color: #ef4444; }
+    .highlight.purple { color: #a855f7; }
+    .highlight.cyan { color: #06b6d4; }
+    .highlight.orange { color: #f97316; }
+    .highlight.emerald { color: #059669; }
+    .highlight.pink { color: #ec4899; }
+    
+    /* CTA */
+    .cta-section {
+      background: rgba(15, 23, 42, 0.5);
+      padding: 64px 0;
+      text-align: center;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    
+    .btn {
+      padding: 12px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: linear-gradient(to right, #059669, #10b981);
       color: white;
+    }
+    
+    .btn-primary:hover {
+      background: linear-gradient(to right, #047857, #059669);
       transform: translateY(-2px);
     }
     
-    .card-3d {
-      transform-style: preserve-3d;
-      transition: transform 0.3s ease;
+    .btn-secondary {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #1a202c;
+      background: rgba(255, 255, 255, 0.9);
     }
     
-    .card-3d:hover {
-      transform: rotateX(5deg) rotateY(5deg) scale(1.02);
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 1);
+      color: #000000;
+      transform: translateY(-2px);
+    }
+    
+    /* Footer */
+    .footer {
+      border-top: 1px solid rgba(71, 85, 105, 0.5);
+      background: rgba(2, 6, 23, 0.8);
+      padding: 40px 0 24px;
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 32px;
+    }
+    
+    .footer h4 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    
+    .footer-divider {
+      width: 64px;
+      height: 2px;
+      background: linear-gradient(to right, #60a5fa, #06b6d4);
+      margin-bottom: 16px;
+    }
+    
+    .footer ul {
+      list-style: none;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.8;
+    }
+    
+    .footer a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer a:hover {
+      color: white;
+    }
+    
+    .footer-bottom {
+      border-top: 1px solid rgba(71, 85, 105, 0.5);
+      background: rgba(2, 6, 23, 1);
+      padding: 24px 0;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
-<body class="min-h-screen text-gray-900 antialiased selection:bg-white/20">
-
-  <!-- Header/Navigation -->
-  <header class="glass-nav sticky top-0 z-50">
-    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16">
-        <div class="flex items-center">
-          <a href="index.html" class="text-2xl font-bold text-white hover:scale-105 transition-transform">
-            WashDrive
-          </a>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <img src="assets/logo.png" alt="WashDrive Logo">
+          <h1>WashDrive</h1>
         </div>
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="index.html" class="text-white/80 hover:text-white transition-colors font-medium">Home</a>
-          <a href="faq.html" class="text-white font-bold border-b-2 border-white">FAQ</a>
-        </div>
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="offerte.html">Offerte</a>
+          <a href="faq.html" class="active">FAQ</a>
+          <a href="carta-fedelta.html">Carta Fedeltà</a>
+        </nav>
       </div>
-    </nav>
+    </div>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-bg py-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-black/20"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-bounce-in">
-        Domande
-        <span class="block gradient-text">Frequenti</span>
-      </h1>
-      <p class="text-xl md:text-2xl text-white/90 mb-8 animate-fade-in" style="animation-delay: 0.3s;">
-        Scopri tutto su <strong>WashDrive</strong> in un click! 🚗✨
-      </p>
-      <div class="w-32 h-2 bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500 mx-auto rounded-full animate-slide-up" style="animation-delay: 0.6s;"></div>
+  <section class="hero">
+    <div class="container-small">
+      <h1>❓ <span class="gradient-text">Domande Frequenti</span></h1>
+      <p>Trova tutte le risposte che cerchi sui nostri servizi di autolavaggio</p>
+      <div class="divider"></div>
     </div>
   </section>
 
   <!-- FAQ Section -->
-  <section class="py-20 relative">
-    <div class="absolute inset-0 bg-gradient-to-b from-purple-900/20 to-blue-900/20"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="space-y-6">
+  <section class="faq-section">
+    <div class="container-small">
+      <div class="faq-list">
         
         <!-- FAQ 1 -->
-        <details class="faq-card card-3d rounded-2xl p-8 group animate-fade-in" style="animation-delay: 0.1s;">
-          <summary class="flex justify-between items-center cursor-pointer list-none">
-            <h3 class="text-xl font-bold text-gray-800 pr-4">
-              🎯 Come posso prenotare un lavaggio?
-            </h3>
-            <div class="faq-icon text-3xl flex-shrink-0 w-8 h-8 flex items-center justify-center">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-            </div>
-          </summary>
-          <div class="mt-6 pt-6 border-t-2 border-gradient-to-r from-pink-400 to-purple-500">
-            <p class="text-gray-700 leading-relaxed text-lg">
-              Prenotare è <strong class="text-brand">facilissimo</strong>! Vai sulla homepage, compila il modulo con i tuoi dati, 
-              scegli data e orario. Riceverai subito una <strong class="text-purple-600">conferma via email</strong> 
-              con tutti i dettagli! 🎉
-            </p>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(1)">
+            <h3>📞 Come posso prenotare un lavaggio?</h3>
+            <span class="faq-toggle" id="toggle-1">➕</span>
           </div>
-        </details>
+          <div class="faq-answer" id="answer-1">
+            <p>Puoi prenotare facilmente chiamando il <span class="highlight">+39 342 073 4828</span> oppure scrivendo a <span class="highlight">washdrive25@gmail.com</span>. Ti richiameremo entro 30 minuti per confermare data e orario!</p>
+          </div>
+        </div>
 
         <!-- FAQ 2 -->
-        <details class="faq-card card-3d rounded-2xl p-8 group animate-fade-in" style="animation-delay: 0.2s;">
-          <summary class="flex justify-between items-center cursor-pointer list-none">
-            <h3 class="text-xl font-bold text-gray-800 pr-4">
-              🗺️ In quali zone operate?
-            </h3>
-            <div class="faq-icon text-3xl flex-shrink-0 w-8 h-8 flex items-center justify-center">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-            </div>
-          </summary>
-          <div class="mt-6 pt-6 border-t-2 border-gradient-to-r from-blue-400 to-green-500">
-            <p class="text-gray-700 leading-relaxed text-lg">
-              Copriamo <strong class="text-green-600">tutta la Toscana</strong>! Dalle città principali ai paesini più nascosti. 
-              Durante la prenotazione ti diciamo subito se arriviamo da te. 
-              <strong class="text-blue-600">Espansione continua</strong>! 🌟
-            </p>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(2)">
+            <h3>🗺️ In quali zone operate?</h3>
+            <span class="faq-toggle" id="toggle-2">➕</span>
           </div>
-        </details>
+          <div class="faq-answer" id="answer-2">
+            <p>Serviamo <span class="highlight green">tutta la provincia di Caserta</span> e zone limitrofe. Per verificare se arriviamo nella tua zona, contattaci e ti confermeremo subito la disponibilità!</p>
+          </div>
+        </div>
 
         <!-- FAQ 3 -->
-        <details class="faq-card card-3d rounded-2xl p-8 group animate-fade-in" style="animation-delay: 0.3s;">
-          <summary class="flex justify-between items-center cursor-pointer list-none">
-            <h3 class="text-xl font-bold text-gray-800 pr-4">
-              ⏰ Quanto tempo dura un lavaggio?
-            </h3>
-            <div class="faq-icon text-3xl flex-shrink-0 w-8 h-8 flex items-center justify-center">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-            </div>
-          </summary>
-          <div class="mt-6 pt-6 border-t-2 border-gradient-to-r from-yellow-400 to-orange-500">
-            <div class="text-gray-700 leading-relaxed text-lg space-y-3">
-              <p><strong class="text-orange-600">⚡ Essenziale</strong>: 20-30 minuti</p>
-              <p><strong class="text-yellow-600">🔥 Completo</strong>: 45-60 minuti</p>
-              <p><strong class="text-red-600">💎 Premium</strong>: 60-90 minuti</p>
-              <p class="text-purple-600 font-semibold">Sempre puntuali e professionali! ⭐</p>
-            </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(3)">
+            <h3>⏰ Quanto tempo dura un lavaggio?</h3>
+            <span class="faq-toggle" id="toggle-3">➕</span>
           </div>
-        </details>
+          <div class="faq-answer" id="answer-3">
+            <p><span class="highlight yellow">🚗 Lavaggio Base</span>: 20-30 minuti<br>
+            <span class="highlight orange">🔥 Lavaggio Standard</span>: 45-60 minuti<br>
+            <span class="highlight red">💎 Lavaggio Premium</span>: 60-90 minuti<br>
+            <span class="highlight green">Sempre puntuali e professionali! ⭐</span></p>
+          </div>
+        </div>
 
         <!-- FAQ 4 -->
-        <details class="faq-card card-3d rounded-2xl p-8 group animate-fade-in" style="animation-delay: 0.4s;">
-          <summary class="flex justify-between items-center cursor-pointer list-none">
-            <h3 class="text-xl font-bold text-gray-800 pr-4">
-              💳 Come posso pagare?
-            </h3>
-            <div class="faq-icon text-3xl flex-shrink-0 w-8 h-8 flex items-center justify-center">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-            </div>
-          </summary>
-          <div class="mt-6 pt-6 border-t-2 border-gradient-to-r from-green-400 to-blue-500">
-            <p class="text-gray-700 leading-relaxed text-lg">
-              <strong class="text-green-600">Tutti i metodi</strong>: contanti, carte, PayPal, bonifico, 
-              Apple Pay, Google Pay! Paga <strong class="text-blue-600">prima o dopo</strong> come preferisci. 
-              <strong class="text-purple-600">Massima flessibilità</strong>! 💪
-            </p>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(4)">
+            <h3>💳 Come posso pagare?</h3>
+            <span class="faq-toggle" id="toggle-4">➕</span>
           </div>
-        </details>
+          <div class="faq-answer" id="answer-4">
+            <p>Accettiamo <span class="highlight green">tutti i metodi di pagamento</span>: contanti, carte di credito/debito, PayPal, bonifico bancario, Apple Pay e Google Pay. Puoi pagare prima o dopo il servizio, come preferisci! <span class="highlight purple">Massima flessibilità</span>! 💪</p>
+          </div>
+        </div>
 
         <!-- FAQ 5 -->
-        <details class="faq-card card-3d rounded-2xl p-8 group animate-fade-in" style="animation-delay: 0.5s;">
-          <summary class="flex justify-between items-center cursor-pointer list-none">
-            <h3 class="text-xl font-bold text-gray-800 pr-4">
-              💧 Che cos'è il lavaggio waterless?
-            </h3>
-            <div class="faq-icon text-3xl flex-shrink-0 w-8 h-8 flex items-center justify-center">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-            </div>
-          </summary>
-          <div class="mt-6 pt-6 border-t-2 border-gradient-to-r from-cyan-400 to-blue-500">
-            <p class="text-gray-700 leading-relaxed text-lg">
-              <strong class="text-cyan-600">Tecnologia del futuro</strong>! Prodotti speciali che incapsulano lo sporco 
-              senza acqua. <strong class="text-blue-600">Eco-friendly al 100%</strong> e super efficace! 
-              Risparmi <strong class="text-green-600">150+ litri</strong> ogni volta! 🌱
-            </p>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(5)">
+            <h3>💧 Che cos'è il lavaggio waterless?</h3>
+            <span class="faq-toggle" id="toggle-5">➕</span>
           </div>
-        </details>
+          <div class="faq-answer" id="answer-5">
+            <p>Il lavaggio <span class="highlight cyan">waterless (senza acqua)</span> utilizza prodotti speciali che incapsulano lo sporco senza bisogno di acqua. È <span class="highlight green">eco-friendly al 100%</span> e permette di risparmiare oltre 150 litri di acqua per ogni lavaggio! 🌱</p>
+          </div>
+        </div>
 
         <!-- FAQ 6 -->
-        <details class="faq-card card-3d rounded-2xl p-8 group animate-fade-in" style="animation-delay: 0.6s;">
-          <summary class="flex justify-between items-center cursor-pointer list-none">
-            <h3 class="text-xl font-bold text-gray-800 pr-4">
-              ❌ Posso cancellare o modificare?
-            </h3>
-            <div class="faq-icon text-3xl flex-shrink-0 w-8 h-8 flex items-center justify-center">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-            </div>
-          </summary>
-          <div class="mt-6 pt-6 border-t-2 border-gradient-to-r from-red-400 to-pink-500">
-            <p class="text-gray-700 leading-relaxed text-lg">
-              <strong class="text-red-600">Cancellazione gratuita</strong> fino a 2 ore prima! 
-              Per modifiche chiamaci e troviamo una soluzione. 
-              <strong class="text-pink-600">Flessibilità totale</strong> per i nostri clienti! 🤝
-            </p>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(6)">
+            <h3>❌ Posso cancellare o modificare la prenotazione?</h3>
+            <span class="faq-toggle" id="toggle-6">➕</span>
           </div>
-        </details>
+          <div class="faq-answer" id="answer-6">
+            <p>Certo! Puoi <span class="highlight red">cancellare gratuitamente</span> fino a 2 ore prima dell'appuntamento. Per modifiche, chiamaci e troveremo insieme la soluzione migliore. <span class="highlight pink">Flessibilità totale</span> per i nostri clienti! 🤝</p>
+          </div>
+        </div>
 
         <!-- FAQ 7 -->
-        <details class="faq-card card-3d rounded-2xl p-8 group animate-fade-in" style="animation-delay: 0.7s;">
-          <summary class="flex justify-between items-center cursor-pointer list-none">
-            <h3 class="text-xl font-bold text-gray-800 pr-4">
-              🧽 Che prodotti usate?
-            </h3>
-            <div class="faq-icon text-3xl flex-shrink-0 w-8 h-8 flex items-center justify-center">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-            </div>
-          </summary>
-          <div class="mt-6 pt-6 border-t-2 border-gradient-to-r from-emerald-400 to-teal-500">
-            <p class="text-gray-700 leading-relaxed text-lg">
-              Solo <strong class="text-emerald-600">prodotti premium eco-friendly</strong>! 
-              Chemical Guys, Meguiar's e le migliori formule waterless. 
-              <strong class="text-teal-600">Sicuri per auto, ambiente e persone</strong>! 🌿
-            </p>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(7)">
+            <h3>🧽 Che prodotti utilizzate?</h3>
+            <span class="faq-toggle" id="toggle-7">➕</span>
           </div>
-        </details>
+          <div class="faq-answer" id="answer-7">
+            <p>Utilizziamo solo <span class="highlight purple">prodotti professionali di alta qualità</span>, eco-friendly e sicuri per tutte le superfici dell'auto. Tutti i nostri prodotti sono certificati e rispettano l'ambiente! 🌿</p>
+          </div>
+        </div>
 
         <!-- FAQ 8 -->
-        <details class="faq-card card-3d rounded-2xl p-8 group animate-fade-in" style="animation-delay: 0.8s;">
-          <summary class="flex justify-between items-center cursor-pointer list-none">
-            <h3 class="text-xl font-bold text-gray-800 pr-4">
-              📄 Rilasciate fattura?
-            </h3>
-            <div class="faq-icon text-3xl flex-shrink-0 w-8 h-8 flex items-center justify-center">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-              </svg>
-            </div>
-          </summary>
-          <div class="mt-6 pt-6 border-t-2 border-gradient-to-r from-indigo-400 to-purple-500">
-            <p class="text-gray-700 leading-relaxed text-lg">
-              <strong class="text-indigo-600">Fattura elettronica</strong> per tutti i servizi! 
-              Inserisci i dati fiscali alla prenotazione e ricevi tutto entro 24h. 
-              <strong class="text-purple-600">Perfetto per aziende</strong>! 📊
-            </p>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(8)">
+            <h3>🚗 Che tipi di veicoli lavate?</h3>
+            <span class="faq-toggle" id="toggle-8">➕</span>
           </div>
-        </details>
+          <div class="faq-answer" id="answer-8">
+            <p>Laviamo <span class="highlight">tutti i tipi di veicoli</span>: auto, SUV, furgoni, moto, camper. Ogni veicolo riceve un trattamento personalizzato in base alle sue caratteristiche specifiche!</p>
+          </div>
+        </div>
+
+        <!-- FAQ 9 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(9)">
+            <h3>🎁 Fate trattamenti extra?</h3>
+            <span class="faq-toggle" id="toggle-9">➕</span>
+          </div>
+          <div class="faq-answer" id="answer-9">
+            <p>Certamente! Offriamo <span class="highlight yellow">ceratura protettiva</span>, <span class="highlight orange">sanificazione interni</span>, <span class="highlight green">trattamento plastiche</span> e molto altro. Ogni servizio è personalizzabile secondo le tue esigenze!</p>
+          </div>
+        </div>
+
+        <!-- FAQ 10 -->
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(10)">
+            <h3>🎫 Come funziona la Carta Fedeltà?</h3>
+            <span class="faq-toggle" id="toggle-10">➕</span>
+          </div>
+          <div class="faq-answer" id="answer-10">
+            <p>La nostra <span class="highlight green">Carta Fedeltà</span> ti permetterà di accumulare punti ad ogni lavaggio e ottenere sconti esclusivi, servizi gratuiti e vantaggi riservati. <span class="highlight yellow">🚧 Attualmente in sviluppo</span> - sarà presto disponibile con tanti vantaggi esclusivi!</p>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="py-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500"></div>
-    <div class="absolute inset-0 bg-black/20"></div>
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6 animate-bounce-in">
-        Altre domande? 🤔
-      </h2>
-      <p class="text-xl text-white/90 mb-10 animate-fade-in">
-        Il nostro team è sempre pronto ad aiutarti! ⚡
-      </p>
-      <div class="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up">
-        <a href="https://wa.me/393803863461" target="_blank" class="btn-gradient text-white px-10 py-4 rounded-full font-bold text-lg shadow-2xl">
-          💬 Contattaci Subito
-        </a>
+  <section class="cta-section">
+    <div class="container-small">
+      <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 24px;">Hai altre domande?</h2>
+      <p style="font-size: 20px; color: rgba(255, 255, 255, 0.8);">Non esitare a contattarci! Siamo qui per aiutarti</p>
+      <div class="cta-buttons">
+        <a href="tel:+393420734828" class="btn btn-primary">📞 Chiamaci Ora</a>
+        <button onclick="openGmail()" class="btn btn-secondary">✉️ Scrivi Email</button>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
         <div>
-          <h3 class="text-3xl font-bold gradient-text mb-4">WashDrive</h3>
-          <p class="text-gray-400 mb-6 text-lg">
-            L'autolavaggio del futuro! 🚗✨
-          </p>
-        </div>
-        <div>
-          <h4 class="font-bold text-white mb-6 text-xl">Link Utili</h4>
-          <ul class="space-y-3">
-            <li><a href="https://instagram.com/washdrive25" target="_blank" class="text-gray-400 hover:text-white transition-colors text-lg flex items-center gap-2">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              Instagram
-            </a></li>
-            <li><a href="https://www.tiktok.com/@washdrive25?is_from_webapp=1&sender_device=pc" target="_blank" class="text-gray-400 hover:text-white transition-colors text-lg flex items-center gap-2">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19.321 5.562a5.124 5.124 0 0 1-.443-.258 6.228 6.228 0 0 1-1.137-.966c-.849-.849-1.133-1.905-1.133-3.124h-2.671v11.743c0 1.607-1.302 2.909-2.909 2.909s-2.909-1.302-2.909-2.909 1.302-2.909 2.909-2.909c.303 0 .595.047.869.133v-2.753a5.659 5.659 0 0 0-.869-.067c-3.157 0-5.714 2.557-5.714 5.714s2.557 5.714 5.714 5.714 5.714-2.557 5.714-5.714V9.014a8.25 8.25 0 0 0 3.096 1.777V8.086c-.702-.165-1.336-.466-1.883-.893a4.535 4.535 0 0 1-1.634-1.631z"/></svg>
-              TikTok
-            </a></li>
-            <li><a href="https://wa.me/393803863461" target="_blank" class="text-gray-400 hover:text-white transition-colors text-lg flex items-center gap-2">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.893 3.488"/></svg>
-              WhatsApp
-            </a></li>
+          <h4>📍 Informazioni di contatto</h4>
+          <div class="footer-divider"></div>
+          <ul>
+            <li><span class="highlight">🚗 WashDrive</span> • P.IVA 02554240503</li>
+            <li><span class="highlight green">📱</span> +39 342 073 4828</li>
+            <li><span class="highlight yellow">✉️</span> washdrive25@gmail.com</li>
+            <li><span class="highlight purple">📍</span> Servizio a domicilio - Provincia di Caserta</li>
           </ul>
         </div>
+        
         <div>
-          <h4 class="font-bold text-white mb-6 text-xl">Informazioni</h4>
-          <ul class="space-y-3">
-            <li><a href="privacy.html" class="text-gray-400 hover:text-white transition-colors text-lg">Privacy</a></li>
-            <li><a href="termini.html" class="text-gray-400 hover:text-white transition-colors text-lg">Termini</a></li>
-            <li><a href="cookie-policy.html" class="text-gray-400 hover:text-white transition-colors text-lg">Cookie</a></li>
-          </ul>
+          <h4>🔗 Link utili</h4>
+          <div class="footer-divider"></div>
+          <div>
+            <a href="index.html">🏠 Home</a><br>
+            <a href="offerte.html">🎯 Offerte</a>
+          </div>
         </div>
       </div>
-      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
-        <p class="text-gray-500 text-lg">
-          © 2024 WashDrive. Fatto con ❤️ in Toscana
-        </p>
+    </div>
+    
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2025 WashDrive. Tutti i diritti riservati. | 
+        <a href="privacy.html">Privacy Policy</a></p>
       </div>
     </div>
   </footer>
 
   <script>
-    // Enhanced FAQ interactions with colorful animations
-    document.querySelectorAll('details').forEach((detail, index) => {
-      detail.addEventListener('toggle', function() {
-        if (this.open) {
-          // Close other details
-          document.querySelectorAll('details[open]').forEach(other => {
-            if (other !== this) other.open = false;
-          });
+    function toggleFaq(num) {
+      const answer = document.getElementById('answer-' + num);
+      const toggle = document.getElementById('toggle-' + num);
+      
+      if (answer.classList.contains('open')) {
+        answer.classList.remove('open');
+        toggle.textContent = '➕';
+        toggle.style.transform = 'rotate(0deg)';
+      } else {
+        answer.classList.add('open');
+        toggle.textContent = '➖';
+        toggle.style.transform = 'rotate(45deg)';
+      }
+    }
+    
+    function openGmail() {
+      // Apre Gmail direttamente nel browser con email precompilata
+      const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=washdrive25@gmail.com&su=Domanda%20da%20FAQ%20WashDrive&body=Ciao%20WashDrive,%0D%0A%0D%0AHo%20una%20domanda%20riguardo%20ai%20vostri%20servizi:%0D%0A%0D%0A[Scrivi%20qui%20la%20tua%20domanda]%0D%0A%0D%0AGrazie!';
+      
+      // Apre in una nuova finestra/tab
+      const newWindow = window.open(gmailUrl, '_blank');
+      
+      if (!newWindow) {
+        // Se il popup è bloccato, mostra le info di contatto
+        alert(
+          '📧 Per scriverci:\n\n' +
+          'Email: washdrive25@gmail.com\n' +
+          'Telefono: +39 342 073 4828\n\n' +
+          'Oggetto: Domanda da FAQ WashDrive'
+        );
+      }
+    }
+    
+    function openEmailOptions() {
+      // Prova prima il metodo classico mailto
+      const mailtoLink = 'mailto:washdrive25@gmail.com?subject=Domanda%20da%20FAQ%20WashDrive';
+      
+      // Crea un link temporaneo e prova a cliccarci
+      const link = document.createElement('a');
+      link.href = mailtoLink;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      
+      try {
+        link.click();
+        document.body.removeChild(link);
+      } catch (error) {
+        document.body.removeChild(link);
+        
+        // Se mailto non funziona, offri alternative
+        const choice = confirm(
+          "Il tuo browser non ha un client email configurato.\n\n" +
+          "Vuoi aprire Gmail nel browser?\n\n" +
+          "Clicca OK per Gmail, Annulla per vedere altre opzioni."
+        );
+        
+        if (choice) {
+          // Apri Gmail
+          const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=washdrive25@gmail.com&su=Domanda%20da%20FAQ%20WashDrive';
+          window.open(gmailUrl, '_blank');
+        } else {
+          // Mostra altre opzioni
+          const options = 
+            "📧 Email: washdrive25@gmail.com\n" +
+            "📱 Telefono: +39 342 073 4828\n\n" +
+            "Puoi anche:\n" +
+            "• Copiare l'email e aprire il tuo client email\n" +
+            "• Chiamarci direttamente\n" +
+            "• Scriverci su WhatsApp";
           
-          // Add special effect for opened FAQ
-          this.style.transform = 'scale(1.02)';
-          setTimeout(() => {
-            this.style.transform = 'scale(1)';
-          }, 200);
+          alert(options);
         }
+      }
+    }
+    
+    function copyEmail() {
+      const email = 'washdrive25@gmail.com';
+      navigator.clipboard.writeText(email).then(function() {
+        alert('✅ Email copiata negli appunti: ' + email + '\nPuoi ora incollarla nel tuo client email!');
+      }).catch(function() {
+        // Fallback per browser più vecchi
+        const textArea = document.createElement('textarea');
+        textArea.value = email;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        alert('✅ Email copiata negli appunti: ' + email + '\nPuoi ora incollarla nel tuo client email!');
       });
-    });
-
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.animationPlayState = 'running';
-        }
-      });
-    }, observerOptions);
-
-    // Observe all animated elements
-    document.querySelectorAll('.animate-fade-in, .animate-slide-up, .animate-bounce-in').forEach(el => {
-      el.style.animationPlayState = 'paused';
-      observer.observe(el);
-    });
+    }
+    
+    // Mobile menu toggle (placeholder)
+    console.log('FAQ page loaded successfully');
   </script>
-
 </body>
 </html>

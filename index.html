@@ -88,6 +88,11 @@
   
   <!-- Tailwind CSS - Caricamento diretto -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- CSS e JS Locali -->
+  <link rel="stylesheet" href="css/theme.css" />
+  <!-- RIMOSSO: script src="js/landing-clean-fix.js" - causava errori -->
+  
   <script>
     // Configurazione Tailwind
     tailwind.config = {
@@ -1090,12 +1095,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- HEADER rimosso (logo spostato dentro l'hero) -->
   <header id="header" class="hidden" aria-hidden="true"></header>
 
-  <!-- Scrolling Info Banner -->
-  <div class="scrolling-banner py-3 overflow-hidden relative z-30">
-    <div class="banner-content" id="bannerContent">
-      <!-- Content populated by JavaScript -->
+  <!-- Scrolling Info Banner - VERSIONE SEMPLICE -->
+  <div style="background: linear-gradient(90deg, #003366, #004488, #003366); padding: 12px 0; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.2);">
+    <div style="animation: scroll-text 25s linear infinite; white-space: nowrap; color: white; font-weight: 600;">
+      🚗 WashDrive - Autolavaggio a Domicilio &nbsp;&nbsp;&nbsp;&nbsp;
+      ⚡ Prenota in 30 Secondi &nbsp;&nbsp;&nbsp;&nbsp;
+      📍 Pisa e Provincia &nbsp;&nbsp;&nbsp;&nbsp;
+      🌟 Oltre 500 Clienti Soddisfatti &nbsp;&nbsp;&nbsp;&nbsp;
+      🔧 Attrezzatura Professionale &nbsp;&nbsp;&nbsp;&nbsp;
+      💧 Waterless Disponibile &nbsp;&nbsp;&nbsp;&nbsp;
+      🏆 Garanzia Soddisfatti o Rimborsati &nbsp;&nbsp;&nbsp;&nbsp;
+      📱 WhatsApp Sempre Attivo &nbsp;&nbsp;&nbsp;&nbsp;
+      🚗 WashDrive - Autolavaggio a Domicilio &nbsp;&nbsp;&nbsp;&nbsp;
     </div>
   </div>
+  
+  <style>
+    @keyframes scroll-text {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+  </style>
 
   <!-- HERO -->
   <section id="home" class="relative overflow-hidden">
@@ -1469,13 +1489,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <!-- CONTATTI + RECENSIONI (ripristinato carousel, rimossi recapiti sotto il form) -->
+  <!-- RECENSIONI + OFFERTE -->
   <section id="contatti" class="mx-auto max-w-6xl px-4 py-20">
     <div class="grid md:grid-cols-2 gap-10 items-start">
+      <!-- Recensioni Clienti -->
       <div>
         <h2 class="text-2xl md:text-3xl font-semibold">Recensioni Clienti</h2>
         <div class="mt-6 w-full max-w-sm" id="reviews"></div>
         <div id="reviewAnnouncer" class="sr-only" aria-live="polite"></div>
+      </div>
+      
+      <!-- Offerte Speciali -->
+      <div>
+        <h2 class="text-2xl md:text-3xl font-semibold">🎯 Offerte Speciali</h2>
+        <div class="mt-6 w-full max-w-sm" id="offers"></div>
       </div>
     </div>
   </section>
@@ -1492,16 +1519,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="text-white/60">
         <!-- Header sezione footer -->
         <div class="mb-4">
-          <h4 class="text-white font-semibold text-sm">📍 Informazioni di contatto</h4>
+          <h4 class="text-white font-semibold text-base md:text-lg">📍 Informazioni di contatto</h4>
           <div class="w-16 h-0.5 bg-gradient-to-r from-blue-400 to-cyan-400 mt-1"></div>
         </div>
         
-        <ul class="mt-2 space-y-2 text-xs md:text-[11px] text-white/50 leading-relaxed">
-          <li><span class="text-blue-400 font-medium">🚗 WashDrive</span> • P.IVA 02554240503 • REA PI-269783</li>
-          <li><span class="text-white/60">📍</span> Via Arrigo Boito 52, 56038 Ponsacco (PI) – Italia</li>
-          <li><span class="text-green-400">📱</span> <a href="https://wa.me/393803863461" target="_blank" class="text-white/70 hover:text-green-400 transition-colors font-medium">+39 380 386 3461</a></li>
-          <li><span class="text-purple-400">✉️</span> <a href="mailto:washdrive25@gmail.com" class="hover:text-purple-400 transition-colors">washdrive25@gmail.com</a> • <a href="mailto:washdrive@pec.it" class="hover:text-orange-400 transition-colors text-white/50">PEC</a></li>
-          <li><a href="https://instagram.com/washdrive25" target="_blank" rel="noopener" class="inline-flex items-center gap-1 hover:text-pink-400 text-white/60 transition-colors group">
+        <ul class="mt-2 space-y-2 text-sm md:text-base text-white/50 leading-relaxed">
+          <li><span class="text-blue-400 font-medium">🚗 WashDrive</span> • P.IVA 02554240503</li>
+          <li><span class="text-slate-400">🏢</span> REA PI-269783 • <span class="text-white/40">CF:</span> CZZPIO00P27G795N</li>
+          <li><span class="text-white/60">📍</span> Via Arrigo Boito 52, 56038 Ponsacco (PI)</li>
+          <li><span class="text-green-400">📱</span> <a href="https://wa.me/393803863461" target="_blank" class="text-white/70 hover:text-green-400 transition-colors font-medium">+39 380 386 3461</a> <span class="text-green-400/60">(WhatsApp)</span></li>
+          <li><span class="text-purple-400">✉️</span> <a href="mailto:washdrive25@gmail.com" class="hover:text-purple-400 transition-colors">washdrive25@gmail.com</a></li>
+          <li><span class="text-orange-400">📧</span> <a href="mailto:washdrive@pec.it" class="hover:text-orange-400 transition-colors text-white/50">washdrive@pec.it</a> <span class="text-orange-400/60">(PEC)</span></li>
+          <li><span class="text-pink-400">📷</span> <a href="https://instagram.com/washdrive25" target="_blank" rel="noopener" class="inline-flex items-center gap-1 hover:text-pink-400 text-white/60 transition-colors group">
             <svg class="w-3.5 h-3.5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.40z"></path></svg>
             @washdrive25</a></li>
         </ul>
@@ -1509,16 +1538,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="justify-self-start md:justify-self-end">
         <!-- Header sezione legale -->
         <div class="mb-4">
-          <h4 class="text-white font-semibold text-sm">📋 Info legali</h4>
+          <h4 class="text-white font-semibold text-base md:text-lg">📋 Info legali</h4>
           <div class="w-16 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400 mt-1"></div>
         </div>
         
-        <div class="flex gap-6">
-  <a href="faq.html" class="text-white/70 hover:text-white">FAQ</a>
-  <a href="privacy.html" class="text-white/70 hover:text-white">Privacy</a>
-  <a href="cookie-policy.html" class="text-white/70 hover:text-white">Cookie</a>
-  <a href="termini.html" class="text-white/70 hover:text-white">Termini</a>
-      </div>
+        <ul class="mt-2 space-y-2 text-sm md:text-base text-white/50 leading-relaxed">
+          <li><a href="faq.html" class="text-white/70 hover:text-white transition-colors">❓ FAQ - Domande Frequenti</a></li>
+          <li><a href="privacy.html" class="text-white/70 hover:text-white transition-colors">🔒 Privacy Policy</a></li>
+          <li><a href="cookie-policy.html" class="text-white/70 hover:text-white transition-colors">🍪 Cookie Policy</a></li>
+          <li><a href="termini.html" class="text-white/70 hover:text-white transition-colors">📋 Termini di Servizio</a></li>
+        </ul>
     </div>
     <div class="mt-12 pt-8 border-t border-slate-800 text-center">
       <p class="text-sm text-white/60">© 2025 WashDrive • Tutti i diritti riservati</p>
@@ -1543,18 +1572,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <button id="backToTop" aria-label="Torna su" class="hidden fixed bottom-6 right-6 z-40 rounded-full bg-white text-slate-900 w-11 h-11 shadow-lg border border-slate-300 hover:shadow-xl hover:bg-white/90 transition flex items-center justify-center text-lg">↑</button>
 
   <script src="js/landing-clean-fix.js?v=20251003-2"></script>
-  <script src="banner-simple.js?v=20251003"></script>
-  <script>
-    // Fix immediato per il testo "renotazione" 
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(() => {
-        const elem = document.querySelector("#bannerContent > span:nth-child(5)");
-        if (elem && elem.textContent.includes("renotazione")) {
-          elem.innerHTML = '<span class="banner-icon">⚡ </span>Prenotazione in 30 secondi';
-        }
-      }, 100);
-    });
-  </script>
+  
   <script type="application/ld+json">{
     "@context": "https://schema.org",
     "@type": "AutoDetailing",
@@ -1578,207 +1596,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     "sameAs": ["https://instagram.com/washdrive25"]
   }</script>
   
-  <!-- JavaScript per statistiche live con Google Sheets -->
-  <script>
-  // Configurazione Google Sheets API
-  const SHEET_CONFIG = {
-    // ID del Google Sheet di WashDrive
-    sheetId: '16Tf0j-fdg_LQE3Mv-7s0EPY-RYXJqpVHrQp6WJ02B-M',
-    // API Key di Google
-    apiKey: 'AIzaSyDfmIV7K3jlPcrlqhW7uJabyQZErVMEyho',
-    // Range delle celle che contengono le statistiche
-    range: 'Foglio1!A1:D1' // A1=auto lavate, B1=prossimo slot, C1=rating, D1=tecnici
-  };
-  
-  // Fallback data (usati se Google Sheets non è disponibile)
-  const fallbackStats = {
-    carsWashed: 23,
-    nextSlot: '16:15',
-    avgRating: 4.8,
-    activeTechs: 4
-  };
-  
-  let useGoogleSheets = false; // DISATTIVATO - ora usa file locale!
-  let useLocalStats = true; // ATTIVATO - sistema automatico!
-  
-  // Cache per evitare troppe chiamate API
-  let statsCache = null;
-  let lastFetch = 0;
-  const CACHE_DURATION = 30000; // 30 secondi
-  
-  // Funzione per ottenere dati dal file locale
-  async function fetchLocalStats() {
-    try {
-      const response = await fetch('./stats.json?t=' + Date.now()); // Cache busting
-      if (!response.ok) {
-        console.warn('File stats.json non trovato, uso dati di fallback');
-        return null;
-      }
-      
-      const data = await response.json();
-      console.log('📁 Dati caricati dal file locale:', data);
-      
-      return {
-        carsWashed: parseInt(data.carsWashed) || fallbackStats.carsWashed,
-        nextSlot: data.nextSlot || fallbackStats.nextSlot,
-        avgRating: parseFloat(data.avgRating) || fallbackStats.avgRating,
-        activeTechs: parseInt(data.activeOperators || data.activeTechs) || fallbackStats.activeTechs
-      };
-    } catch (error) {
-      console.warn('Errore lettura file locale:', error);
-      return null;
-    }
-  }
-  
-  // Funzione per ottenere dati da Google Sheets
-  async function fetchGoogleSheetsData() {
-    if (!useGoogleSheets || !SHEET_CONFIG.apiKey || SHEET_CONFIG.apiKey === 'YOUR_GOOGLE_API_KEY_HERE') {
-      return null;
-    }
-    
-    try {
-      const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_CONFIG.sheetId}/values/${SHEET_CONFIG.range}?key=${SHEET_CONFIG.apiKey}`;
-      const response = await fetch(url);
-      
-      if (!response.ok) {
-        console.warn('Google Sheets API error:', response.status);
-        return null;
-      }
-      
-      const data = await response.json();
-      console.log('🔍 Risposta completa Google Sheets:', data);
-      const values = data.values?.[0];
-      console.log('📋 Valori estratti:', values);
-      console.log('📏 Lunghezza array:', values?.length);
-      
-      if (!values || values.length < 4) {
-        console.warn('Google Sheets: dati insufficienti - values:', values);
-        return null;
-      }
-      
-      return {
-        carsWashed: parseInt(values[0]) || fallbackStats.carsWashed,
-        nextSlot: values[1] || fallbackStats.nextSlot,
-        avgRating: parseFloat(values[2]) || fallbackStats.avgRating,
-        activeTechs: parseInt(values[3]) || fallbackStats.activeTechs
-      };
-    } catch (error) {
-      console.warn('Errore Google Sheets API:', error);
-      return null;
-    }
-  }
-  
-  // Funzione per generare dati simulati realistici
-  function generateSimulatedStats() {
-    const now = new Date();
-    const hour = now.getHours();
-    
-    // Auto lavate oggi (cresce durante il giorno)
-    const baseWashed = 15;
-    const hourlyGrowth = Math.max(0, (hour - 8) * 1.5);
-    const randomVariation = Math.floor(Math.random() * 5);
-    const carsWashed = Math.max(0, baseWashed + hourlyGrowth + randomVariation);
-    
-    // Prossimo slot disponibile
-    const nextHour = (hour + 1 + Math.floor(Math.random() * 3)) % 24;
-    const nextMinute = Math.floor(Math.random() * 4) * 15; // 0, 15, 30, 45
-    const nextSlot = `${nextHour.toString().padStart(2, '0')}:${nextMinute.toString().padStart(2, '0')}`;
-    
-    // Rating con piccole variazioni
-    const baseRating = 4.85;
-    const variation = (Math.random() - 0.5) * 0.1;
-    const avgRating = parseFloat((baseRating + variation).toFixed(1));
-    
-    // Operatori attivi (2-5 durante il giorno, 1-2 la sera)
-    const isWorkingHours = hour >= 9 && hour <= 18;
-    const activeTechs = isWorkingHours ? 
-      2 + Math.floor(Math.random() * 4) : 
-      1 + Math.floor(Math.random() * 2);
-    
-    return { carsWashed, nextSlot, avgRating, activeTechs };
-  }
-  
-  // Aggiornamento Statistiche Live
-  async function updateLiveStats() {
-    const now = Date.now();
-    let stats = null;
-    
-    // Usa cache se ancora valida
-    if (statsCache && (now - lastFetch) < CACHE_DURATION) {
-      stats = statsCache;
-    } else {
-      // Prova prima il file locale (sistema automatico)
-      if (useLocalStats) {
-        stats = await fetchLocalStats();
-        if (stats) {
-          console.log('📊 Stats aggiornate: (File Locale - Automatico)');
-        }
-      }
-      
-      // Fallback a Google Sheets se abilitato
-      if (!stats && useGoogleSheets) {
-        stats = await fetchGoogleSheetsData();
-        if (stats) {
-          console.log('📊 Stats aggiornate: (Google Sheets)');
-        }
-      }
-      
-      // Se nessuna fonte funziona, usa dati simulati
-      if (!stats) {
-        stats = generateSimulatedStats();
-        console.log('📊 Stats aggiornate: (Simulati - Fallback)');
-      }
-      
-      // Aggiorna cache
-      statsCache = stats;
-      lastFetch = now;
-    }
-    
-    // Aggiorna DOM
-    const carsElement = document.getElementById('carsWashedToday');
-    const slotElement = document.getElementById('nextSlot');
-    const ratingElement = document.getElementById('avgRating');
-    const techsElement = document.getElementById('activeTechs');
-    
-    if (carsElement) carsElement.textContent = stats.carsWashed;
-    if (slotElement) slotElement.textContent = stats.nextSlot;
-    if (ratingElement) ratingElement.textContent = stats.avgRating;
-    if (techsElement) techsElement.textContent = stats.activeTechs;
-    
-    // Log per debug
-    console.log('📊 Stats aggiornate:', stats, useGoogleSheets ? '(Google Sheets)' : '(Simulati)');
-  }
-  
-  // Inizializza e configura aggiornamenti
-  document.addEventListener('DOMContentLoaded', function() {
-    // Aggiorna subito
-    updateLiveStats();
-    
-    // Aggiorna ogni 30 secondi
-    setInterval(updateLiveStats, 30000);
-    
-    // Aggiorna quando la pagina torna visibile
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) {
-        updateLiveStats();
-      }
-    });
-    
-    // Log istruzioni setup
-    if (!useGoogleSheets) {
-      console.log(`
-🚀 SETUP GOOGLE SHEETS:
-1. Crea un Google Sheet con le statistiche in A1:D1
-2. Ottieni API Key da Google Cloud Console
-3. Condividi il sheet pubblicamente o configura OAuth
-4. Sostituisci SHEET_CONFIG nel codice
-5. Imposta useGoogleSheets = true
 
-📊 Per ora uso dati simulati realistici.
-      `);
-    }
-  });
-  </script>
   
   <!-- Placeholder per AggregateRating dinamico: sarà aggiunto da JS se ci sono recensioni -->
   <script id="ldAggregateRating" type="application/ld+json" data-dynamic="true"></script>
